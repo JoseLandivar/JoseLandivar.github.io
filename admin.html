@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santa Ana S.R.L. — Casa de Cambio · Expreso Amazonas</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --v:   #1B6B2F;
+  --v2:  #2A8C42;
+  --v3:  #0F4A1F;
+  --vc:  #3AAD56;
+  --y:   #D4A017;
+  --y2:  #F0C030;
+  --y3:  #FDD835;
+  --crema:  #FEFDF8;
+  --gris:   #F3F6F3;
+  --borde:  #D4E8D8;
+  --txt:    #1A2A1C;
+  --txt2:   #5A7060;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; background: var(--crema); color: var(--txt); overflow-x: hidden; }
+
+/* ══ NAVBAR ══ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 72px; padding: 0 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(254,253,248,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: all .3s;
+}
+nav.scrolled { border-color: var(--borde); box-shadow: 0 2px 20px rgba(27,107,47,.08); }
+
+.nav-brand img { height: 50px; object-fit: contain; }
+
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 14px; font-weight: 600; color: var(--txt2); text-decoration: none; transition: color .2s; }
+.nav-links a:hover { color: var(--v); }
+.nav-cta {
+  background: var(--v) !important; color: white !important;
+  padding: 10px 22px; border-radius: 30px; font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(27,107,47,.3);
+  transition: all .2s !important;
+}
+.nav-cta:hover { background: var(--v2) !important; transform: translateY(-1px); }
+
+/* ══ HERO ══ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 110px 56px 80px;
+  position: relative; overflow: hidden;
+  background: linear-gradient(155deg, #FEFDF8 0%, #F0F7F1 55%, #E6F3E9 100%);
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle, rgba(27,107,47,.045) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+.hero-accent {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--v) 33.3%, var(--y2) 33.3% 66.6%, var(--v) 66.6%);
+}
+.hero-orb1 {
+  position: absolute; right: -80px; top: 50%; transform: translateY(-50%);
+  width: 600px; height: 600px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,107,47,.055) 0%, transparent 70%);
+  border: 1px solid rgba(27,107,47,.06);
+}
+.hero-orb2 {
+  position: absolute; right: 80px; top: 50%; transform: translateY(-50%);
+  width: 380px; height: 380px; border-radius: 50%;
+  border: 1px dashed rgba(212,160,23,.18);
+  animation: spin 40s linear infinite;
+}
+@keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+.hero-content { position: relative; z-index: 1; max-width: 660px; }
+
+.hero-logo { margin-bottom: 32px; animation: fadeUp .6s ease .1s both; }
+.hero-logo img { height: 76px; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(27,107,47,.14)); }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(27,107,47,.08); border: 1px solid rgba(27,107,47,.15);
+  color: var(--v); font-size: 11px; font-weight: 800;
+  padding: 6px 16px; border-radius: 30px; margin-bottom: 22px;
+  letter-spacing: 1px; text-transform: uppercase;
+  animation: fadeUp .6s ease .2s both;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 5.5vw, 70px);
+  font-weight: 900; line-height: 1.05; letter-spacing: -1.5px;
+  color: var(--txt); margin-bottom: 10px;
+  animation: fadeUp .6s ease .3s both;
+}
+.hero-title-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 700; font-style: italic;
+  color: var(--v); letter-spacing: -1px; margin-bottom: 26px;
+  animation: fadeUp .6s ease .35s both;
+  display: flex; align-items: center; gap: 14px;
+}
+.title-bar { width: 70px; height: 3px; background: linear-gradient(90deg, var(--y2), transparent); border-radius: 2px; }
+
+.hero-sub {
+  font-size: 17px; font-weight: 400; line-height: 1.7;
+  color: var(--txt2); max-width: 520px; margin-bottom: 40px;
+  animation: fadeUp .6s ease .4s both;
+}
+
+.hero-btns {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  animation: fadeUp .6s ease .5s both;
+}
+.btn-main {
+  background: var(--v); color: white; text-decoration: none;
+  padding: 15px 30px; border-radius: 50px;
+  font-size: 15px; font-weight: 700;
+  display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 28px rgba(27,107,47,.3); transition: all .25s;
+}
+.btn-main:hover { background: var(--v2); transform: translateY(-2px); box-shadow: 0 12px 36px rgba(27,107,47,.4); }
+.btn-sec {
+  background: white; color: var(--v); text-decoration: none;
+  padding: 15px 26px; border-radius: 50px;
+  font-size: 15px; font-weight: 700;
+  border: 2px solid var(--v); transition: all .2s;
+}
+.btn-sec:hover { background: var(--v); color: white; }
+
+.hero-stats {
+  display: flex; align-items: center; gap: 0;
+  margin-top: 48px; width: fit-content;
+  background: white; border: 1px solid var(--borde);
+  border-radius: 18px; overflow: hidden;
+  box-shadow: 0 4px 24px rgba(27,107,47,.08);
+  animation: fadeUp .6s ease .6s both;
+}
+.hst { padding: 18px 26px; text-align: center; position: relative; }
+.hst:not(:last-child)::after {
+  content: ''; position: absolute; right: 0; top: 20%; bottom: 20%;
+  width: 1px; background: var(--borde);
+}
+.hst-n { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: var(--v); }
+.hst-l { font-size: 11px; color: var(--txt2); font-weight: 600; margin-top: 2px; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* ══ FLAG BAR ══ */
+.flag { height: 6px; background: linear-gradient(90deg, var(--v3) 33.3%, var(--y2) 33.3% 66.6%, var(--v3) 66.6%); }
+
+/* ══ SECTIONS ══ */
+section { padding: 90px 56px; }
+
+.stag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--y); margin-bottom: 14px;
+}
+.stag::before { content: ''; width: 18px; height: 2px; background: var(--y); border-radius: 2px; }
+
+.stitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 900; line-height: 1.1; letter-spacing: -1px;
+  color: var(--txt); margin-bottom: 14px;
+}
+.ssub { font-size: 16px; font-weight: 400; color: var(--txt2); line-height: 1.7; max-width: 500px; }
+
+/* ══ CÓMO FUNCIONA ══ */
+.how { background: var(--v3); color: white; position: relative; overflow: hidden; }
+.how::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 0% 50%, rgba(212,160,23,.1) 0%, transparent 60%);
+}
+.how .stitle { color: white; }
+.how .ssub { color: rgba(255,255,255,.6); }
+.how .stag { color: var(--y3); }
+.how .stag::before { background: var(--y3); }
+
+.how-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 0; margin-top: 52px; position: relative; z-index: 1;
+}
+.how-grid::before {
+  content: ''; position: absolute; top: 44px; left: 12.5%; right: 12.5%;
+  height: 1px; background: linear-gradient(90deg, transparent, rgba(212,160,23,.3) 20%, rgba(212,160,23,.3) 80%, transparent);
+}
+.how-step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+.how-num {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: rgba(212,160,23,.12); border: 2px solid rgba(212,160,23,.35);
+  color: var(--y3); font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 18px; transition: all .3s;
+}
+.how-step:hover .how-num { background: var(--y); border-color: var(--y); color: var(--v3); box-shadow: 0 6px 20px rgba(212,160,23,.4); transform: scale(1.1); }
+.how-icon { font-size: 28px; margin-bottom: 12px; }
+.how-t { font-size: 15px; font-weight: 700; color: white; margin-bottom: 8px; }
+.how-d { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
+
+/* ══ BENEFICIOS ══ */
+.benefits { background: var(--gris); }
+.feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 52px; }
+.feat-card {
+  background: white; border: 1px solid var(--borde); border-radius: 18px;
+  padding: 28px; transition: all .25s; position: relative; overflow: hidden;
+}
+.feat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--v), var(--vc));
+  transform: scaleX(0); transition: transform .3s; transform-origin: left;
+}
+.feat-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(27,107,47,.1); }
+.feat-card:hover::before { transform: scaleX(1); }
+.feat-ico { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+.fi-v { background: rgba(27,107,47,.08); }
+.fi-y { background: rgba(212,160,23,.1); }
+.feat-t { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--txt); }
+.feat-d { font-size: 13px; color: var(--txt2); line-height: 1.6; }
+
+/* ══ TARIFAS ══ */
+.rates { background: var(--v3); color: white; position: relative; overflow: hidden; }
+.rates::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 70% at 100% 30%, rgba(212,160,23,.07) 0%, transparent 60%);
+}
+.rates .stitle { color: white; }
+.rates .ssub { color: rgba(255,255,255,.55); }
+.rates .stag { color: var(--y3); }
+.rates .stag::before { background: var(--y3); }
+
+.rates-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 52px; align-items: start; position: relative; z-index: 1; }
+
+.rate-big {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07);
+  border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+}
+.rate-big::before {
+  content: '%'; position: absolute; right: -10px; top: -20px;
+  font-family: 'Playfair Display', serif; font-size: 130px; font-weight: 900;
+  color: rgba(255,255,255,.03); line-height: 1;
+}
+.rb-lbl { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,.45); margin-bottom: 10px; }
+.rb-num { font-family: 'Playfair Display', serif; font-size: 68px; font-weight: 900; color: var(--y3); letter-spacing: -3px; line-height: 1; }
+.rb-suf { font-size: 22px; color: var(--y2); }
+.rb-desc { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; margin-top: 14px; }
+.rb-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.rb-pill { background: rgba(212,160,23,.14); border: 1px solid rgba(212,160,23,.3); color: var(--y3); font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 20px; }
+
+.rate-tbl { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.07); border-radius: 18px; overflow: hidden; }
+.rt-h { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 13px 18px; background: rgba(255,255,255,.06); font-size: 10px; font-weight: 800; color: rgba(255,255,255,.5); text-transform: uppercase; letter-spacing: .8px; border-bottom: 1px solid rgba(255,255,255,.05); }
+.rt-r { display: grid; grid-template-columns: 1fr 1fr 1fr; padding: 13px 18px; border-bottom: 1px solid rgba(255,255,255,.04); font-size: 13px; transition: background .15s; }
+.rt-r:last-child { border-bottom: none; }
+.rt-r:hover { background: rgba(255,255,255,.03); }
+.rt-m { color: rgba(255,255,255,.75); font-weight: 600; }
+.rt-c { color: var(--y2); font-weight: 700; }
+.rt-t { color: var(--vc); font-weight: 700; }
+
+/* ══ REQUISITOS ══ */
+.req { background: white; }
+.req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 48px; }
+.req-card {
+  background: var(--gris); border: 1px solid var(--borde);
+  border-radius: 18px; padding: 30px; transition: all .25s; position: relative; overflow: hidden;
+}
+.req-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; }
+.req-card.env::after { background: linear-gradient(90deg, var(--v), var(--vc)); }
+.req-card.cob::after { background: linear-gradient(90deg, var(--y), var(--y3)); }
+.req-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(27,107,47,.1); }
+.req-ico { font-size: 34px; margin-bottom: 14px; }
+.req-t { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.req-s { font-size: 13px; color: var(--txt2); margin-bottom: 18px; }
+.req-list { list-style: none; }
+.req-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; padding: 8px 0; border-bottom: 1px solid var(--borde); line-height: 1.5; }
+.req-list li:last-child { border-bottom: none; }
+.req-list li::before { content: '✓'; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+.req-card.env .req-list li::before { background: rgba(27,107,47,.1); color: var(--v); }
+.req-card.cob .req-list li::before { background: rgba(212,160,23,.15); color: var(--y); }
+
+/* ══ SUCURSALES ══ */
+.suc { background: var(--gris); }
+.suc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 44px; }
+.suc-card {
+  background: white; border: 1.5px solid var(--borde); border-radius: 14px;
+  padding: 16px 12px; text-align: center; transition: all .2s;
+}
+.suc-card:hover { border-color: var(--v); box-shadow: 0 8px 24px rgba(27,107,47,.12); transform: translateY(-3px); }
+.suc-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--vc); box-shadow: 0 0 8px rgba(58,173,86,.5); margin: 0 auto 10px; animation: dotPulse 2s ease-in-out infinite; }
+@keyframes dotPulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.suc-c { font-size: 13px; font-weight: 800; color: var(--txt); margin-bottom: 3px; }
+.suc-n { font-size: 10px; color: var(--txt2); }
+.suc-h { font-size: 10px; color: var(--v); font-weight: 700; margin-top: 5px; }
+
+/* ══ TESTIMONIOS ══ */
+.testi { background: white; }
+.testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 48px; }
+.testi-card { background: var(--gris); border: 1px solid var(--borde); border-radius: 18px; padding: 26px; transition: all .2s; }
+.testi-card:hover { box-shadow: 0 12px 32px rgba(27,107,47,.1); transform: translateY(-4px); }
+.testi-q { font-size: 44px; font-family: 'Playfair Display', serif; color: var(--y2); line-height: 1; margin-bottom: 6px; }
+.testi-stars { color: var(--y2); font-size: 13px; margin-bottom: 12px; letter-spacing: 2px; }
+.testi-txt { font-size: 14px; line-height: 1.7; color: var(--txt); font-style: italic; margin-bottom: 18px; }
+.testi-foot { display: flex; align-items: center; gap: 10px; padding-top: 14px; border-top: 1px solid var(--borde); }
+.testi-av { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--v), var(--vc)); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 800; color: white; }
+.testi-name { font-size: 13px; font-weight: 700; }
+.testi-city { font-size: 11px; color: var(--txt2); }
+
+/* ══ CTA ══ */
+.cta-wrap { margin: 0 56px 90px; }
+.cta-box {
+  background: linear-gradient(135deg, var(--v3) 0%, var(--v) 60%, var(--v2) 100%);
+  border-radius: 26px; padding: 64px 72px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 40px; flex-wrap: wrap; position: relative; overflow: hidden;
+}
+.cta-box::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: rgba(255,255,255,.04); }
+.cta-box::after { content: ''; position: absolute; bottom: -60px; right: 100px; width: 200px; height: 200px; border-radius: 50%; border: 1px solid rgba(212,160,23,.2); }
+.cta-img { position: relative; z-index: 1; }
+.cta-img img { height: 64px; filter: brightness(10) saturate(0); opacity: .88; }
+.cta-txt { flex: 1; position: relative; z-index: 1; }
+.cta-title { font-family: 'Playfair Display', serif; font-size: clamp(24px,3vw,38px); font-weight: 900; color: white; letter-spacing: -1px; line-height: 1.15; margin-bottom: 8px; }
+.cta-sub { font-size: 15px; color: rgba(255,255,255,.7); font-weight: 400; }
+.cta-btns { display: flex; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+.btn-cw { background: white; color: var(--v3); padding: 13px 26px; border-radius: 50px; font-size: 14px; font-weight: 800; text-decoration: none; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(0,0,0,.15); transition: all .2s; }
+.btn-cw:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,.2); }
+.btn-cy { background: var(--y2); color: var(--v3); padding: 13px 26px; border-radius: 50px; font-size: 14px; font-weight: 800; text-decoration: none; transition: all .2s; }
+.btn-cy:hover { background: var(--y3); transform: translateY(-2px); }
+
+/* ══ FOOTER ══ */
+footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
+.footer-stripe { height: 4px; background: linear-gradient(90deg, var(--y) 0%, var(--y3) 50%, var(--y) 100%); border-radius: 2px; margin-bottom: 48px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+.footer-logo img { height: 56px; filter: brightness(10) saturate(0); opacity: .88; margin-bottom: 14px; }
+.footer-desc { font-size: 13px; color: rgba(255,255,255,.48); line-height: 1.7; max-width: 250px; }
+.f-col-t { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; color: var(--y2); margin-bottom: 16px; }
+.f-links { list-style: none; }
+.f-links li { margin-bottom: 9px; }
+.f-links a { font-size: 13px; color: rgba(255,255,255,.58); text-decoration: none; transition: color .2s; }
+.f-links a:hover { color: var(--y3); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.07); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.f-copy { font-size: 12px; color: rgba(255,255,255,.32); }
+
+/* ══ ASFI ══ */
+.asfi-sec { background: white; padding: 90px 56px; }
+.asfi-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 18px; }
+.asfi-card {
+  background: var(--gris); border: 1px solid var(--borde);
+  border-radius: 18px; padding: 28px; transition: all .25s;
+}
+.asfi-card.asfi-main {
+  background: var(--v3); color: white;
+  border-color: transparent;
+}
+.asfi-card:not(.asfi-main):hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,107,47,.1); }
+.asfi-icon { font-size: 32px; margin-bottom: 14px; }
+.asfi-t { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; color: var(--txt); }
+.asfi-main .asfi-t { color: white; }
+.asfi-d { font-size: 13px; line-height: 1.7; color: var(--txt2); }
+.asfi-main .asfi-d { color: rgba(255,255,255,.65); }
+.asfi-link {
+  display: inline-block; margin-top: 18px;
+  background: var(--y2); color: var(--v3);
+  padding: 8px 18px; border-radius: 20px;
+  font-size: 12px; font-weight: 800; text-decoration: none;
+  transition: all .2s;
+}
+.asfi-link:hover { background: var(--y3); transform: translateY(-1px); }
+.asfi-list { list-style: none; margin-top: 4px; }
+.asfi-list li { font-size: 13px; color: var(--txt2); padding: 7px 0; border-bottom: 1px solid var(--borde); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.asfi-list li:last-child { border-bottom: none; }
+.asfi-list li::before { content: '✓'; color: var(--v); font-weight: 800; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+
+/* ══ FRAUDE ══ */
+.fraude-sec { background: #fffbf0; padding: 90px 56px; }
+.fraude-banner {
+  display: flex; align-items: center; gap: 18px;
+  background: #fff3cd; border: 2px solid #f6c23e;
+  border-radius: 16px; padding: 20px 28px; margin-bottom: 44px;
+}
+.fraude-icon { font-size: 36px; flex-shrink: 0; }
+.fraude-txt { font-size: 15px; line-height: 1.6; color: #7d4e00; }
+.fraude-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 32px; }
+.fraude-card {
+  background: white; border: 1px solid #f0d9d9;
+  border-radius: 16px; padding: 26px; position: relative;
+  overflow: hidden; transition: all .25s;
+}
+.fraude-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(229,62,62,.1); border-color: #e53e3e; }
+.fraude-num {
+  position: absolute; top: 16px; right: 18px;
+  font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900;
+  color: rgba(229,62,62,.08); line-height: 1;
+}
+.fraude-ico { font-size: 30px; margin-bottom: 12px; }
+.fraude-t { font-size: 15px; font-weight: 800; color: #c53030; margin-bottom: 8px; }
+.fraude-d { font-size: 13px; line-height: 1.65; color: var(--txt2); }
+.fraude-d strong { color: var(--txt); }
+.fraude-tips {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 12px;
+}
+.ftip {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: white; border: 1px solid #c6f6d5;
+  border-radius: 12px; padding: 14px 18px;
+  font-size: 14px; color: var(--txt); line-height: 1.5;
+}
+.ftip span:first-child { font-size: 18px; flex-shrink: 0; }
+
+
+
+/* ══ SPA ══ */
+.spa-page { display: none; }
+.spa-page.active { display: block; }
+.page-hero {
+  padding: 100px 56px 48px;
+  background: linear-gradient(135deg, var(--v3) 0%, var(--v) 100%);
+  position: relative; overflow: hidden;
+}
+.page-hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle, rgba(255,255,255,.04) 1px, transparent 1px); background-size:28px 28px; }
+.page-hero-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  color: rgba(255,255,255,.6); font-size: 13px; font-weight: 700;
+  cursor: pointer; margin-bottom: 16px; position: relative; z-index:1;
+  transition: color .2s;
+}
+.page-hero-back:hover { color: var(--y2); }
+.page-hero-title { font-family:'Playfair Display',serif; font-size: clamp(32px,4vw,52px); font-weight:900; color:white; position:relative;z-index:1; letter-spacing:-1px; }
+.page-hero-sub { font-size:16px; color:rgba(255,255,255,.6); margin-top:8px; position:relative;z-index:1; }
+.page-hero-red { background: linear-gradient(135deg, #7b1a1a 0%, #c53030 100%); }
+
+/* link activo en navbar */
+.nav-links a.nav-active { color: var(--v) !important; }
+
+/* ══ REVEAL ══ */
+.reveal { opacity: 1; transform: translateY(0); transition: opacity .7s ease, transform .7s ease; }
+.reveal.hidden { opacity: 0; transform: translateY(26px); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ══════════════════════════════════════
+   CHATBOT FLOTANTE
+══════════════════════════════════════ */
+
+/* Botón flotante */
+.chat-fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 500;
+  width: 62px; height: 62px; border-radius: 50%;
+  background: var(--v);
+  border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 28px rgba(27,107,47,.45);
+  transition: all .3s cubic-bezier(.16,1,.3,1);
+  animation: fabIn .6s cubic-bezier(.16,1,.3,1) 1s both;
+}
+@keyframes fabIn { from{transform:scale(0);opacity:0} to{transform:scale(1);opacity:1} }
+
+.chat-fab:hover { background: var(--v2); transform: scale(1.08); box-shadow: 0 12px 36px rgba(27,107,47,.55); }
+.chat-fab.open { background: var(--v3); }
+
+.chat-fab svg { width: 26px; height: 26px; fill: white; transition: all .3s; }
+.chat-fab .icon-close { display: none; }
+.chat-fab.open .icon-chat { display: none; }
+.chat-fab.open .icon-close { display: block; }
+
+/* Badge de notificación */
+.chat-badge {
+  position: absolute; top: -4px; right: -4px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--y2); color: var(--v3);
+  font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid white;
+  animation: badgePop .4s cubic-bezier(.16,1,.3,1) 2s both;
+}
+@keyframes badgePop { from{transform:scale(0)} to{transform:scale(1)} }
+.chat-badge.hidden { display: none; }
+
+/* Tooltip */
+.chat-tooltip {
+  position: absolute; bottom: 70px; right: 0;
+  background: var(--v3); color: white;
+  font-size: 13px; font-weight: 600;
+  padding: 8px 14px; border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+  animation: tooltipIn .4s cubic-bezier(.16,1,.3,1) 2.5s both;
+  pointer-events: none;
+}
+.chat-tooltip::after {
+  content: ''; position: absolute; bottom: -6px; right: 20px;
+  width: 12px; height: 12px;
+  background: var(--v3); transform: rotate(45deg);
+  border-radius: 2px;
+}
+@keyframes tooltipIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.chat-tooltip.hidden { display: none; }
+
+/* Ventana del chatbot */
+.chat-window {
+  position: fixed; bottom: 104px; right: 28px; z-index: 499;
+  width: 390px; height: 600px;
+  display: flex; flex-direction: column;
+  background: var(--crema);
+  border-radius: 24px; overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,.2), 0 0 0 1px rgba(27,107,47,.08);
+  transform: scale(.85) translateY(20px);
+  opacity: 0; pointer-events: none;
+  transition: all .4s cubic-bezier(.16,1,.3,1);
+  transform-origin: bottom right;
+}
+.chat-window.open {
+  transform: scale(1) translateY(0);
+  opacity: 1; pointer-events: all;
+}
+
+/* Header del chat */
+.chat-header {
+  background: var(--v3); padding: 16px 18px 12px;
+  display: flex; align-items: center; gap: 12px;
+  flex-shrink: 0; position: relative; overflow: hidden;
+}
+.chat-header::before { content: ''; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: rgba(255,255,255,.03); }
+
+.chat-h-logo { height: 40px; object-fit: contain; filter: brightness(10) saturate(0); opacity: .9; flex-shrink: 0; position: relative; z-index: 1; }
+.chat-h-div { width: 1px; height: 32px; background: rgba(255,255,255,.14); flex-shrink: 0; }
+.chat-h-info { flex: 1; position: relative; z-index: 1; }
+.chat-h-name { font-size: 12px; font-weight: 800; color: white; line-height: 1.3; }
+.chat-h-sub { font-size: 10px; color: var(--y2); font-weight: 600; letter-spacing: .3px; margin-top: 1px; }
+.chat-h-status { display: flex; align-items: center; gap: 5px; margin-top: 4px; }
+.chat-h-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--vc); box-shadow: 0 0 6px var(--vc); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+.chat-h-online { font-size: 10px; color: var(--vc); font-weight: 700; }
+
+/* Franja bandera */
+.chat-flag { height: 3px; background: linear-gradient(90deg, var(--v) 33.3%, var(--y2) 33.3% 66.6%, var(--v) 66.6%); flex-shrink: 0; }
+
+/* Mensajes */
+.chat-msgs {
+  flex: 1; overflow-y: auto; padding: 16px 12px;
+  display: flex; flex-direction: column; gap: 10px;
+  scroll-behavior: smooth;
+}
+.chat-msgs::-webkit-scrollbar { width: 3px; }
+.chat-msgs::-webkit-scrollbar-thumb { background: var(--borde); border-radius: 3px; }
+
+.msg-row { display: flex; gap: 7px; animation: msgIn .3s cubic-bezier(.16,1,.3,1) both; }
+@keyframes msgIn { from{transform:translateY(8px);opacity:0} to{transform:translateY(0);opacity:1} }
+.msg-row.user { flex-direction: row-reverse; }
+
+.av {
+  width: 28px; height: 28px; border-radius: 9px;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  margin-top: 2px; overflow: hidden;
+}
+.av.bot { background: var(--v3); box-shadow: 0 2px 8px rgba(15,74,31,.3); }
+.av.bot img { width: 24px; height: 24px; object-fit: contain; filter: brightness(10) saturate(0); }
+.av.user { background: linear-gradient(135deg, var(--y), var(--y2)); font-size: 10px; font-weight: 800; color: var(--v3); }
+
+.bubble { max-width: 80%; padding: 10px 13px; border-radius: 15px; font-size: 13px; line-height: 1.55; }
+.bubble.bot { background: #EFF7F1; border: 1px solid var(--borde); color: var(--txt); border-top-left-radius: 4px; }
+.bubble.user { background: var(--v); color: white; border-top-right-radius: 4px; text-align: right; }
+.bubble strong { color: var(--v); font-weight: 800; }
+.bubble .amt { color: var(--y); font-weight: 700; }
+
+/* Typing */
+.typing-dots { display: flex; gap: 4px; padding: 4px 2px; align-items: center; }
+.typing-dots span { width: 6px; height: 6px; border-radius: 50%; background: var(--vc); animation: dot 1.2s ease-in-out infinite; }
+.typing-dots span:nth-child(2){animation-delay:.2s} .typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+
+/* Quick replies */
+.chat-quick { padding: 6px 12px 2px; display: flex; flex-wrap: wrap; gap: 5px; flex-shrink: 0; }
+.qbtn {
+  background: white; border: 1.5px solid var(--borde); color: var(--txt2);
+  font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 700;
+  padding: 5px 11px; border-radius: 20px; cursor: pointer; transition: all .2s; white-space: nowrap;
+}
+.qbtn:hover { border-color: var(--v); color: var(--v); background: rgba(27,107,47,.05); }
+
+/* Agent banner */
+.agent-banner {
+  margin: 4px 12px; padding: 10px 13px;
+  background: rgba(27,107,47,.06); border: 1.5px solid rgba(27,107,47,.2);
+  border-radius: 12px; display: none; align-items: center; gap: 10px; flex-shrink: 0;
+}
+.agent-banner.visible { display: flex; }
+.ag-txt { flex: 1; }
+.ag-title { font-size: 11px; font-weight: 800; color: var(--v); }
+.ag-sub { font-size: 10px; color: var(--txt2); margin-top: 1px; }
+.ag-btn {
+  background: var(--v); border: none; color: white;
+  font-family: 'Nunito', sans-serif; font-size: 11px; font-weight: 800;
+  padding: 6px 12px; border-radius: 8px; cursor: pointer; white-space: nowrap;
+}
+.ag-btn:hover { background: var(--v2); }
+
+/* Input */
+.chat-input-area {
+  padding: 8px 12px 12px; border-top: 1px solid var(--borde);
+  display: flex; gap: 8px; align-items: flex-end;
+  flex-shrink: 0; background: white;
+}
+.chat-input {
+  flex: 1; background: var(--gris); border: 1.5px solid var(--borde);
+  border-radius: 13px; padding: 9px 13px; color: var(--txt);
+  font-family: 'Nunito', sans-serif; font-size: 13px; font-weight: 500;
+  resize: none; outline: none; max-height: 90px; min-height: 38px;
+  transition: border-color .2s; line-height: 1.4;
+}
+.chat-input::placeholder { color: var(--txt2); }
+.chat-input:focus { border-color: var(--v); background: white; }
+.chat-send {
+  width: 38px; height: 38px; border-radius: 11px;
+  background: var(--v); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s; flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(27,107,47,.3);
+}
+.chat-send:hover { background: var(--v2); transform: scale(1.06); }
+.chat-send:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+.chat-send svg { width: 15px; height: 15px; fill: white; }
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1000px) {
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+  .rates-layout { grid-template-columns: 1fr; }
+  .suc-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width:768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  section, .hero { padding-left: 20px; padding-right: 20px; }
+  .hero { padding-top: 100px; }
+  .how-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .how-grid::before { display: none; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .req-grid { grid-template-columns: 1fr; }
+  .asfi-grid { grid-template-columns: 1fr 1fr; }
+  .fraude-grid { grid-template-columns: 1fr 1fr; }
+  .fraude-tips { grid-template-columns: 1fr; }
+  .suc-grid { grid-template-columns: repeat(2,1fr); }
+  .testi-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .cta-wrap { margin: 0 20px 80px; }
+  .cta-box { padding: 40px 28px; }
+  .chat-window { width: calc(100vw - 32px); right: 16px; bottom: 90px; }
+  .chat-fab { right: 16px; bottom: 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" onclick="showPage('home')" class="nav-brand" style="text-decoration:none;display:flex;align-items:center;gap:10px">
+    <div style="width:40px;height:40px;border-radius:50%;background:var(--v);display:flex;align-items:center;justify-content:center;font-size:18px">🕊️</div>
+    <div style="line-height:1.2">
+      <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:15px;color:var(--txt)">Santa Ana</div>
+      <div style="font-size:10px;font-weight:700;color:var(--txt2);letter-spacing:.5px">EXPRESO AMAZONAS</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#" onclick="showPage('home')" data-page="home">Inicio</a>
+    <a href="#" onclick="showPage('tarifas')" data-page="tarifas">Tarifas</a>
+    <a href="#" onclick="showPage('sucursales')" data-page="sucursales">Sucursales</a>
+    <a href="#" onclick="showPage('asfi')" data-page="asfi">ASFI</a>
+    <a href="#" onclick="showPage('fraude')" data-page="fraude">⚠️ Alertas</a>
+    <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contacto').scrollIntoView({behavior:'smooth'}),300)" class="nav-cta">Consultar Giro</a>
+  </div>
+</nav>
+
+<!-- ══ PAGE: HOME ══ -->
+<div id="page-home" class="spa-page active">
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-accent"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <div class="hero-logo">
+      <div style="display:inline-flex;align-items:center;gap:14px">
+        <div style="width:70px;height:70px;border-radius:50%;background:var(--v);display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 6px 20px rgba(27,107,47,.3)">🕊️</div>
+        <div style="line-height:1.2">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--txt)">Santa Ana S.R.L.</div>
+          <div style="font-size:11px;font-weight:700;color:var(--v);letter-spacing:1px;text-transform:uppercase">Casa de Cambio · Expreso Amazonas</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-eyebrow">🇧🇴 Empresa boliviana de confianza</div>
+    <h1 class="hero-title">Giros Nacionales</h1>
+    <div class="hero-title-sub">Seguros y al instante <div class="title-bar"></div></div>
+    <p class="hero-sub">Enviamos tu dinero a cualquier rincón de Bolivia en minutos. Con más de 32 agencias en todo el país, supervisados por ASFI, siempre tendrás una oficina cerca.</p>
+    <div class="hero-btns">
+      <a href="#" onclick="showPage('sucursales')" class="btn-main">📍 Ver sucursales →</a>
+      <a href="#como-funciona" class="btn-sec">¿Cómo funciona?</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hst"><div class="hst-n">+32</div><div class="hst-l">Agencias</div></div>
+      <div class="hst"><div class="hst-n">+50K</div><div class="hst-l">Clientes</div></div>
+      <div class="hst"><div class="hst-n">2%</div><div class="hst-l">Comisión</div></div>
+      <div class="hst"><div class="hst-n">Inmediato</div><div class="hst-l">Entrega</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="flag"></div>
+
+<!-- CÓMO FUNCIONA -->
+<section class="how" id="como-funciona">
+  <div style="position:relative;z-index:1">
+    <div class="reveal" style="text-align:center">
+      <div class="stag" style="justify-content:center">Proceso</div>
+      <h2 class="stitle" style="text-align:center;color:white">Enviar es muy sencillo</h2>
+      <p class="ssub" style="text-align:center;margin:0 auto">Solo 4 pasos y tu destinatario ya puede cobrar su giro.</p>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-step"><div class="how-num">1</div><div class="how-icon">🏢</div><div class="how-t">Visita una sucursal</div><div class="how-d">Acércate a cualquiera de nuestras agencias con tu carnet de identidad vigente.</div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-icon">📝</div><div class="how-t">Registra el giro</div><div class="how-d">Indica el nombre del destinatario, ciudad de destino y monto a enviar.</div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-icon">💳</div><div class="how-t">Realiza el pago</div><div class="how-d">Paga el monto más la comisión y recibe tu código único de giro.</div></div>
+      <div class="how-step"><div class="how-num">4</div><div class="how-icon">🎉</div><div class="how-t">¡Listo! Ya disponible</div><div class="how-d">Tu destinatario cobra al instante con su CI y el código de giro.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="flag"></div>
+
+<!-- BENEFICIOS -->
+<section class="benefits" id="servicios">
+  <div class="reveal">
+    <div class="stag">Beneficios</div>
+    <h2 class="stitle">¿Por qué elegir Santa Ana?</h2>
+    <p class="ssub">Años de experiencia conectando familias bolivianas de forma segura y confiable.</p>
+  </div>
+  <div class="feat-grid reveal">
+    <div class="feat-card"><div class="feat-ico fi-v">⚡</div><div class="feat-t">Entrega inmediata</div><div class="feat-d">El dinero está disponible en minutos desde que realizas el envío en nuestra sucursal.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-v">🔒</div><div class="feat-t">100% seguro</div><div class="feat-d">Código único por giro. Solo tu destinatario con su CI puede cobrar el dinero.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-y">💰</div><div class="feat-t">Tarifas accesibles</div><div class="feat-d">Solo el 2% de comisión. <a href="#" onclick="showPage('tarifas')" style="color:var(--v);font-weight:700">Ver tabla completa →</a></div></div>
+    <div class="feat-card"><div class="feat-ico fi-v">📍</div><div class="feat-t">Cobertura nacional</div><div class="feat-d">+32 agencias en Bolivia. <a href="#" onclick="showPage('sucursales')" style="color:var(--v);font-weight:700">Ver todas →</a></div></div>
+    <div class="feat-card"><div class="feat-ico fi-y">🤝</div><div class="feat-t">Atención personalizada</div><div class="feat-d">Personal capacitado y amigable te asiste en cada paso del proceso.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-v">🕐</div><div class="feat-t">Amplio horario</div><div class="feat-d">Lunes a Sábado 8:00–18:00. Domingos 9:00–13:00 para tu comodidad.</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testi">
+  <div class="reveal" style="text-align:center">
+    <div class="stag" style="justify-content:center">Testimonios</div>
+    <h2 class="stitle" style="text-align:center">Lo que dicen nuestros clientes</h2>
+  </div>
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <div class="testi-q">"</div><div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">Envío dinero a mi mamá en Cochabamba cada quince días. Siempre llega en minutos y el trato es excelente.</p>
+      <div class="testi-foot"><div class="testi-av">JM</div><div><div class="testi-name">Juan Mamani</div><div class="testi-city">La Paz</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-q">"</div><div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">La comisión es muy accesible. Mis hijos en Santa Cruz reciben el dinero al instante sin ningún problema.</p>
+      <div class="testi-foot"><div class="testi-av">RC</div><div><div class="testi-name">Rosa Condori</div><div class="testi-city">Oruro</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-q">"</div><div class="testi-stars">★★★★★</div>
+      <p class="testi-txt">Me da mucha confianza que pidan el carnet para cobrar. Sé que mi dinero llega seguro a quien yo quiero.</p>
+      <div class="testi-foot"><div class="testi-av">MT</div><div><div class="testi-name">Mario Torrez</div><div class="testi-city">Tarija</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-wrap reveal" id="contacto">
+  <div class="cta-box">
+    <div class="cta-img">
+      <div style="display:inline-flex;align-items:center;gap:10px">
+        <div style="width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:26px">🕊️</div>
+        <div style="line-height:1.2">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:18px;color:white">Santa Ana</div>
+          <div style="font-size:10px;font-weight:700;color:var(--y2);letter-spacing:.8px">EXPRESO AMAZONAS</div>
+        </div>
+      </div>
+    </div>
+    <div class="cta-txt">
+      <div class="cta-title">¿Listo para enviar tu primer giro?</div>
+      <div class="cta-sub">Visítanos en Av. Busch Nº 1689, Edif. Londres Local 2, Zona Miraflores · Tel: 2228261</div>
+    </div>
+    <div class="cta-btns">
+      <a href="#" onclick="showPage('sucursales')" class="btn-cw">📍 Ver sucursales</a>
+      <a href="#como-funciona" class="btn-cy">¿Cómo funciona?</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-stripe"></div>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:20px">🕊️</div>
+          <div style="line-height:1.2">
+            <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:16px;color:white">Santa Ana S.R.L.</div>
+            <div style="font-size:10px;font-weight:700;color:var(--y2);letter-spacing:.5px">EXPRESO AMAZONAS</div>
+          </div>
+        </div>
+      </div>
+      <p class="footer-desc">Conectando familias bolivianas a través de giros nacionales seguros, rápidos y accesibles en todo el territorio nacional.</p>
+    </div>
+    <div>
+      <div class="f-col-t">Servicios</div>
+      <ul class="f-links">
+        <li><a href="#" onclick="showPage('home')">Enviar Giro</a></li>
+        <li><a href="#" onclick="showPage('home')">Cobrar Giro</a></li>
+        <li><a href="#" onclick="showPage('tarifas')">Tarifas</a></li>
+        <li><a href="#" onclick="showPage('sucursales')">Sucursales</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-t">Información</div>
+      <ul class="f-links">
+        <li><a href="#" onclick="showPage('asfi')">ASFI</a></li>
+        <li><a href="#" onclick="showPage('fraude')">Alertas de Fraude</a></li>
+        <li><a href="#" onclick="showPage('home')">¿Cómo funciona?</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-t">Atención</div>
+      <ul class="f-links">
+        <li><a href="tel:2228261">📞 2228261</a></li>
+        <li><a href="mailto:santaanasrlcontacto@gmail.com">✉️ santaanasrlcontacto@gmail.com</a></li>
+        <li><a href="#">L-S: 8:00 – 18:00</a></li>
+        <li><a href="#">Dom: 9:00 – 13:00</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2025 Santa Ana S.R.L. — Casa de Cambio · Todos los derechos reservados.</div>
+    <div class="f-copy">🇧🇴 Expreso Amazonas · Giros Nacionales · Casa de Cambio</div>
+  </div>
+</footer>
+
+</div><!-- /page-home -->
+
+<!-- ══ PAGE: TARIFAS ══ -->
+<div id="page-tarifas" class="spa-page">
+  <div class="page-hero"><div class="page-hero-back" onclick="showPage('home')">← Inicio</div><div class="page-hero-title">💰 Tarifas</div><div class="page-hero-sub">Precios transparentes, sin costos ocultos</div></div>
+  <section class="rates" id="tarifas" style="padding-top:60px">
+    <div class="rates-layout">
+      <div>
+        <div class="stag reveal">Tarifas</div>
+        <h2 class="stitle reveal">Precios transparentes</h2>
+        <p class="ssub reveal">Sin costos ocultos. Solo una comisión justa del 2% sobre el monto enviado.</p>
+        <div class="rate-big reveal" style="margin-top:36px">
+          <div class="rb-lbl">Comisión</div>
+          <div class="rb-num">2<span class="rb-suf">%</span></div>
+          <div class="rb-desc">Sobre el monto enviado. Comisión mínima Bs. 5. Válido para envíos entre Bs. 50 y Bs. 5,000.</div>
+          <div class="rb-pills">
+            <div class="rb-pill">Mín. Bs. 50</div>
+            <div class="rb-pill">Máx. Bs. 5,000</div>
+            <div class="rb-pill">Com. mín. Bs. 5</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="ssub" style="color:rgba(255,255,255,.45);margin-bottom:0">Ejemplos de tarifas</p>
+        <div class="rate-tbl" style="margin-top:16px">
+          <div class="rt-h"><span>Monto</span><span>Comisión</span><span>Total</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 50</span><span class="rt-c">Bs. 5.00</span><span class="rt-t">Bs. 55.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 100</span><span class="rt-c">Bs. 5.00</span><span class="rt-t">Bs. 105.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 300</span><span class="rt-c">Bs. 6.00</span><span class="rt-t">Bs. 306.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 500</span><span class="rt-c">Bs. 10.00</span><span class="rt-t">Bs. 510.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 1,000</span><span class="rt-c">Bs. 20.00</span><span class="rt-t">Bs. 1,020.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 2,000</span><span class="rt-c">Bs. 40.00</span><span class="rt-t">Bs. 2,040.00</span></div>
+          <div class="rt-r"><span class="rt-m">Bs. 5,000</span><span class="rt-c">Bs. 100.00</span><span class="rt-t">Bs. 5,100.00</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="req" style="background:var(--gris)">
+    <div class="reveal" style="text-align:center">
+      <div class="stag" style="justify-content:center">Documentos</div>
+      <h2 class="stitle" style="text-align:center">¿Qué necesito?</h2>
+      <p class="ssub" style="text-align:center;margin:0 auto">Los requisitos son mínimos para facilitar tu experiencia.</p>
+    </div>
+    <div class="req-grid reveal">
+      <div class="req-card env">
+        <div class="req-ico">📤</div>
+        <div class="req-t">Para Enviar</div>
+        <div class="req-s">Si tú eres quien envía el giro</div>
+        <ul class="req-list">
+          <li>Carnet de identidad original y vigente</li>
+          <li>Nombre completo del destinatario</li>
+          <li>Ciudad de destino del giro</li>
+          <li>Monto a enviar (Bs. 50 – 5,000)</li>
+          <li>Celular del destinatario (opcional)</li>
+        </ul>
+      </div>
+      <div class="req-card cob">
+        <div class="req-ico">📥</div>
+        <div class="req-t">Para Cobrar</div>
+        <div class="req-s">Si tú eres quien recibe el giro</div>
+        <ul class="req-list">
+          <li>Carnet de identidad original y vigente</li>
+          <li>Código único del giro (lo da el remitente)</li>
+          <li>Acercarse a cualquier sucursal de la ciudad destino</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-tarifas -->
+
+<!-- ══ PAGE: SUCURSALES ══ -->
+<div id="page-sucursales" class="spa-page">
+  <div class="page-hero"><div class="page-hero-back" onclick="showPage('home')">← Inicio</div><div class="page-hero-title">📍 Sucursales</div><div class="page-hero-sub">+32 agencias en todo Bolivia</div></div>
+  <section class="suc" style="padding-top:60px">
+    <div class="suc-header reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px">
+      <div><div class="stag">Cobertura</div><h2 class="stitle">+32 agencias en todo Bolivia 🇧🇴</h2></div>
+      <p class="ssub">Presentes en La Paz, Beni, Santa Cruz, Pando y más departamentos del país.</p>
+    </div>
+    <div class="suc-grid reveal">
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">La Paz</div><div class="suc-n">C. Jorge Baenz Nº 1069 entre Haití y Honduras, Z. Miraflores</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Magdalena</div><div class="suc-n">Beni — C. Federico Zampieri S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Cochabamba</div><div class="suc-n">C. Hamiraya Nº 345 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Rosa de Yauma</div><div class="suc-n">Beni — C. Miguel Simón S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Cobija</div><div class="suc-n">Pando — Av. 9 de Febrero S/N Zona Central</div><div class="suc-h">L-S 8:00–17:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Cruz de la Sierra</div><div class="suc-n">C. René Moreno Nº 490, 2do Anillo</div><div class="suc-h">L-S 8:00–19:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Trinidad</div><div class="suc-n">Beni — C. Antonio José de Sucre Nº 466 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Guayaramerín</div><div class="suc-n">Beni — C. Beni Nº 15 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Buenaventura</div><div class="suc-n">La Paz — C. Daniel Salamanca S/N Esq. Bautista Saavedra</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Yacumo</div><div class="suc-n">Beni — C. 16 de Julio Zona Pacajes</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Borja</div><div class="suc-n">Beni — C. Cochabamba S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Rurrenabaque</div><div class="suc-n">Beni — C. Comercio S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Ana de Yacuma</div><div class="suc-n">Beni — C. Santa Cruz Nº 51 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Reyes</div><div class="suc-n">Beni — C. Virgen de Fátima Nº 08 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Riberalta</div><div class="suc-n">Beni — Av. Ejército Nacional Nº 530 Zona Central</div><div class="suc-h">L-S 8:00–17:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Ignacio de Moxos</div><div class="suc-n">Beni — C. Santiesteban S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Joaquín</div><div class="suc-n">Beni — C. Avaroa Nº 11 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Huacaraje</div><div class="suc-n">Beni — C. 24 de Septiembre Nº 54 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Perú Río Apere</div><div class="suc-n">Beni — C. Sin Nombre, Perú Río Apare, Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Tumpasa</div><div class="suc-n">Beni — C. Constitución S/N entre 21 de Diciembre y Murillo Zona Maracani</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Baures</div><div class="suc-n">Beni — C. 6 de Agosto S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Ramón del Beni</div><div class="suc-n">Beni — C. Coronel Viera Nº 132 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Palos Blancos</div><div class="suc-n">La Paz — Av. Antofagasta Nº 141 Esq. Avenida</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Bella Vista</div><div class="suc-n">Beni — C. 18 de Noviembre S/N Zona San</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">El Carmen del Itenez</div><div class="suc-n">Beni — C. Jorge Suarez Vidal S/N 27 de Mayo</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Ixtamas</div><div class="suc-n">La Paz — C. América S/N Hotel Tajibo</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Javier de Chiquitos</div><div class="suc-n">Beni — Av. Padre José de Arce S/N Esq. 24 de Septiembre</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Caranavi</div><div class="suc-n">La Paz — C. Bolívar S/N Interior Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San José de Chiquitos</div><div class="suc-n">Beni — C. Bolívar S/N Interior Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Matías</div><div class="suc-n">La Paz — C. Donato Yabari Barrio Virgen de Cotoca</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Robore</div><div class="suc-n">Beni — C. Donato Yabari Barrio Virgen de Cotoca</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Puerto Suarez</div><div class="suc-n">Beni — C. Chuquisaca Nº 26 Radio TV Cultura</div><div class="suc-h">L-S 8:00–18:00</div></div>
+    </div>
+  </section>
+</div><!-- /page-sucursales -->
+
+<!-- ══ PAGE: ASFI ══ -->
+<div id="page-asfi" class="spa-page">
+  <div class="page-hero"><div class="page-hero-back" onclick="showPage('home')">← Inicio</div><div class="page-hero-title">🏛️ ASFI</div><div class="page-hero-sub">Autoridad de Supervisión del Sistema Financiero</div></div>
+  <section class="asfi-sec" style="padding-top:60px">
+    <div class="reveal" style="text-align:center;margin-bottom:52px">
+      <div class="stag" style="justify-content:center">Regulación</div>
+      <h2 class="stitle" style="text-align:center">Supervisados por ASFI 🏛️</h2>
+      <p class="ssub" style="text-align:center;margin:0 auto">Santa Ana S.R.L. opera bajo la tutela del Ministerio de Economía y Finanzas Públicas.</p>
+    </div>
+    <div class="asfi-grid reveal">
+      <div class="asfi-card asfi-main">
+        <div class="asfi-icon">🏦</div>
+        <h3 class="asfi-t">¿Qué es ASFI?</h3>
+        <p class="asfi-d">Es la institución reguladora que protege, promueve y asegura el cumplimiento de las políticas del sistema financiero nacional, controlando a todas las entidades de intermediación financiera del país.</p>
+        <a href="https://www.asfi.gob.bo" target="_blank" class="asfi-link">Visitar asfi.gob.bo →</a>
+      </div>
+      <div class="asfi-card">
+        <div class="asfi-icon">⚖️</div>
+        <h3 class="asfi-t">Ley N° 393</h3>
+        <p class="asfi-d">La Ley de Servicios Financieros garantiza que todos los consumidores tengan acceso a servicios con trato equitativo, sin discriminación por edad, género, raza, religión o identidad cultural.</p>
+      </div>
+      <div class="asfi-card">
+        <div class="asfi-icon">📋</div>
+        <h3 class="asfi-t">Tus derechos</h3>
+        <ul class="asfi-list">
+          <li>Acceso a servicios financieros equitativos</li>
+          <li>Información fidedigna, clara y oportuna</li>
+          <li>Servicios en cantidad y disponibilidad adecuada</li>
+          <li>Reclamos con respuesta en 5 días hábiles</li>
+        </ul>
+      </div>
+      <div class="asfi-card">
+        <div class="asfi-icon">📣</div>
+        <h3 class="asfi-t">¿Cómo reclamar?</h3>
+        <ul class="asfi-list">
+          <li>Acércate a cualquier sucursal (busca el cartel de reclamos)</li>
+          <li>Presenta tu reclamo verbal o por escrito</li>
+          <li>Recibirás número y fecha de respuesta</li>
+          <li>Si no estás conforme, acude a ASFI en línea</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-asfi -->
+
+<!-- ══ PAGE: FRAUDE ══ -->
+<div id="page-fraude" class="spa-page">
+  <div class="page-hero page-hero-red"><div class="page-hero-back" onclick="showPage('home')">← Inicio</div><div class="page-hero-title">⚠️ Alertas de Fraude</div><div class="page-hero-sub">Protégete de las estafas financieras</div></div>
+  <section class="fraude-sec" style="padding-top:60px">
+    <div class="reveal" style="text-align:center;margin-bottom:52px">
+      <div class="stag" style="justify-content:center;color:#e53e3e">⚠️ Alertas</div>
+      <h2 class="stitle" style="text-align:center">Protégete del fraude</h2>
+      <p class="ssub" style="text-align:center;margin:0 auto">Conoce las tipologías de estafa más comunes para protegerte a ti y a tus seres queridos.</p>
+    </div>
+    <div class="fraude-banner reveal">
+      <div class="fraude-icon">🚨</div>
+      <div class="fraude-txt"><strong>¡IMPORTANTE!</strong> Una vez que un giro es pagado al beneficiario, <strong>NO se puede obtener reembolso</strong>. Ante cualquier sospecha, consulta antes de realizar el envío.</div>
+    </div>
+    <div class="fraude-grid reveal">
+      <div class="fraude-card"><div class="fraude-num">01</div><div class="fraude-ico">🎰</div><h4 class="fraude-t">Premio falso</h4><p class="fraude-d">Te contactan diciendo que ganaste un premio y piden enviar dinero para recibirlo. <strong>Ningún sorteo legítimo pide dinero por adelantado.</strong></p></div>
+      <div class="fraude-card"><div class="fraude-num">02</div><div class="fraude-ico">👤</div><h4 class="fraude-t">Identidad falsa</h4><p class="fraude-d">Estafadores actúan en nombre de entidades financieras reales. <strong>Verifica siempre la identidad de quien te contacta.</strong></p></div>
+      <div class="fraude-card"><div class="fraude-num">03</div><div class="fraude-ico">💸</div><h4 class="fraude-t">Urgencia de envío</h4><p class="fraude-d">Te presionan para enviar dinero "urgentemente" por un familiar en problemas. <strong>Siempre verifica llamando directamente a tu familiar.</strong></p></div>
+      <div class="fraude-card"><div class="fraude-num">04</div><div class="fraude-ico">🌐</div><h4 class="fraude-t">Estafa en línea</h4><p class="fraude-d">Crean relaciones falsas en redes sociales para luego pedir transferencias. <strong>Desconfía de personas que nunca has conocido en persona.</strong></p></div>
+    </div>
+    <div class="fraude-tips reveal">
+      <div class="ftip"><span>✅</span><span>Verifica los datos del recibo <strong>antes</strong> de que sea procesado</span></div>
+      <div class="ftip"><span>✅</span><span>Firma el recibo y <strong>exige tu factura</strong> en cada transacción</span></div>
+      <div class="ftip"><span>✅</span><span>Nunca envíes dinero a personas que <strong>no conoces personalmente</strong></span></div>
+      <div class="ftip"><span>✅</span><span>Ante dudas, consulta en <strong>asfi.gob.bo</strong> o llama al <strong>2228261</strong></span></div>
+    </div>
+  </section>
+</div><!-- /page-fraude -->
+  <div class="hero-accent"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-content">
+    <div class="hero-logo">
+      <div style="display:inline-flex;align-items:center;gap:14px">
+        <div style="width:70px;height:70px;border-radius:50%;background:var(--v);display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 6px 20px rgba(27,107,47,.3)">🕊️</div>
+        <div style="line-height:1.2">
+          <div style="font-family:'Playfair Display',serif;font-weight:900;font-size:22px;color:var(--txt)">Santa Ana S.R.L.</div>
+          <div style="font-size:11px;font-weight:700;color:var(--v);letter-spacing:1px;text-transform:uppercase">Casa de Cambio · Expreso Amazonas</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-eyebrow">🇧🇴 Empresa boliviana de confianza</div>
+    <h1 class="hero-title">Giros Nacionales</h1>
+    <div class="hero-title-sub">Seguros y al instante <div class="title-bar"></div></div>
+    <p class="hero-sub">Enviamos tu dinero a cualquier rincón de Bolivia en minutos. Con más de 32 agencias en todo el país, supervisados por ASFI, siempre tendrás una oficina cerca.</p>
+    <div class="hero-btns">
+      <a href="#sucursales" class="btn-main">📍 Ver sucursales →</a>
+      <a href="#como-funciona" class="btn-sec">¿Cómo funciona?</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hst"><div class="hst-n">+32</div><div class="hst-l">Agencias</div></div>
+      <div class="hst"><div class="hst-n">+50K</div><div class="hst-l">Clientes</div></div>
+      <div class="hst"><div class="hst-n">2%</div><div class="hst-l">Comisión</div></div>
+      <div class="hst"><div class="hst-n">Inmediato</div><div class="hst-l">Entrega</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="flag"></div>
+
+<!-- CÓMO FUNCIONA -->
+<section class="how" id="como-funciona">
+  <div style="position:relative;z-index:1">
+    <div class="reveal" style="text-align:center">
+      <div class="stag" style="justify-content:center">Proceso</div>
+      <h2 class="stitle" style="text-align:center;color:white">Enviar es muy sencillo</h2>
+      <p class="ssub" style="text-align:center;margin:0 auto">Solo 4 pasos y tu destinatario ya puede cobrar su giro.</p>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-step"><div class="how-num">1</div><div class="how-icon">🏢</div><div class="how-t">Visita una sucursal</div><div class="how-d">Acércate a cualquiera de nuestras 15 oficinas con tu carnet de identidad vigente.</div></div>
+      <div class="how-step"><div class="how-num">2</div><div class="how-icon">📝</div><div class="how-t">Registra el giro</div><div class="how-d">Indica el nombre del destinatario, ciudad de destino y monto a enviar.</div></div>
+      <div class="how-step"><div class="how-num">3</div><div class="how-icon">💳</div><div class="how-t">Realiza el pago</div><div class="how-d">Paga el monto más la comisión y recibe tu código único de giro.</div></div>
+      <div class="how-step"><div class="how-num">4</div><div class="how-icon">🎉</div><div class="how-t">¡Listo! Ya disponible</div><div class="how-d">Tu destinatario cobra al instante con su CI y el código de giro.</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="flag"></div>
+
+<!-- BENEFICIOS -->
+<section class="benefits" id="servicios">
+  <div class="reveal">
+    <div class="stag">Beneficios</div>
+    <h2 class="stitle">¿Por qué elegir Santa Ana?</h2>
+    <p class="ssub">Años de experiencia conectando familias bolivianas de forma segura y confiable.</p>
+  </div>
+  <div class="feat-grid reveal">
+    <div class="feat-card"><div class="feat-ico fi-v">⚡</div><div class="feat-t">Entrega inmediata</div><div class="feat-d">El dinero está disponible en minutos desde que realizas el envío en nuestra sucursal.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-v">🔒</div><div class="feat-t">100% seguro</div><div class="feat-d">Código único por giro. Solo tu destinatario con su CI puede cobrar el dinero.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-y">💰</div><div class="feat-t">Tarifas accesibles</div><div class="feat-d">Solo el 2% de comisión. Mínimo Bs. 5 sobre cualquier monto enviado.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-v">📍</div><div class="feat-t">Cobertura nacional</div><div class="feat-d">15 sucursales en los 9 departamentos de Bolivia. Siempre cerca de ti.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-y">🤝</div><div class="feat-t">Atención personalizada</div><div class="feat-d">Personal capacitado y amigable te asiste en cada paso del proceso.</div></div>
+    <div class="feat-card"><div class="feat-ico fi-v">🕐</div><div class="feat-t">Amplio horario</div><div class="feat-d">Lunes a Sábado 8:00–18:00. Domingos 9:00–13:00 para tu comodidad.</div></div>
+  </div>
+</section>
+
+      <button class="admin-close" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="admin-stats">
+      <div class="astat"><div class="astat-n" id="statMsgs">0</div><div class="astat-l">Mensajes totales</div></div>
+      <div class="astat"><div class="astat-n" id="statSessions">0</div><div class="astat-l">Sesiones</div></div>
+      <div class="astat"><div class="astat-n" id="statQuick">0</div><div class="astat-l">Respuestas rápidas</div></div>
+      <div class="astat"><div class="astat-n" id="statAgents">0</div><div class="astat-l">Derivaciones agente</div></div>
+    </div>
+    <div class="admin-sub">Preguntas más frecuentes</div>
+    <div class="admin-faq" id="adminFaq"></div>
+    <div class="admin-sub">Registro de conversación</div>
+    <div class="admin-log" id="adminLog"><div style="color:rgba(255,255,255,.3);font-size:12px">— Sin conversaciones aún —</div></div>
+  </div>
+</div>
+
+  <div class="demo-progress" id="demoProgress">Paso 1 / 7</div>
+  <div class="demo-tooltip" id="demoTooltip"></div>
+  <div class="demo-controls">
+    <button class="demo-btn demo-exit" onclick="exitDemo()">✕ Salir del demo</button>
+    <button class="demo-btn" id="demoPrevBtn" onclick="demoStep(-1)">← Anterior</button>
+    <button class="demo-btn" id="demoNextBtn" onclick="demoStep(1)">Siguiente →</button>
+  </div>
+</div>
+
+
+
+<!-- ══ CHATBOT FLOTANTE ══ -->
+
+<!-- Botón FAB -->
+<div style="position:fixed;bottom:28px;right:28px;z-index:500">
+  <div class="chat-tooltip" id="chatTooltip">💬 ¿Tienes dudas? ¡Pregúntame!</div>
+  <button class="chat-fab" id="chatFab">
+    <span class="chat-badge" id="chatBadge">1</span>
+    <svg class="icon-chat" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+    <svg class="icon-close" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+  </button>
+</div>
+
+<!-- Ventana del chat -->
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">
+    <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">🕊️</div>
+    <div class="chat-h-div"></div>
+    <div class="chat-h-info">
+      <div class="chat-h-name">Santa Ana S.R.L. — Casa de Cambio</div>
+      <div class="chat-h-sub">EXPRESO AMAZONAS · GIROS NACIONALES</div>
+      <div class="chat-h-status"><div class="chat-h-dot"></div><span class="chat-h-online">Asistente en línea</span></div>
+    </div>
+  </div>
+  <div class="chat-flag"></div>
+  <div class="chat-msgs" id="chatMsgs"></div>
+  <div class="chat-quick" id="chatQuick"></div>
+  <div class="agent-banner" id="agentBanner">
+    <span style="font-size:18px">👤</span>
+    <div class="ag-txt">
+      <div class="ag-title">Conectar con un agente</div>
+      <div class="ag-sub">Tiempo de espera aprox. 3 min</div>
+    </div>
+    <button class="ag-btn" onclick="connectAgent()">Conectar</button>
+  </div>
+  <div class="chat-input-area">
+    <textarea class="chat-input" id="chatInput" placeholder="Escribe tu pregunta..." rows="1"></textarea>
+    <button class="chat-send" id="chatSend" onclick="handleSend()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+</div>
+
+<script>
+const LOGO_SRC = "";
+
+// ══ SYSTEM PROMPT ══
+const SYSTEM = `Eres el asistente virtual de Santa Ana S.R.L. - Casa de Cambio / Expreso Amazonas, empresa boliviana especializada en giros de dinero nacionales y casa de cambio, regulada por ASFI (Autoridad de Supervisión del Sistema Financiero).
+
+INFORMACIÓN DE LA EMPRESA:
+- Nombre: Santa Ana S.R.L. - Casa de Cambio / Expreso Amazonas
+- Servicios: Giros Nacionales dentro de Bolivia y Casa de Cambio
+- +32 agencias a nivel nacional
+- Dirección Central: Av. Busch Nº 1689, Edificio Londres Local 2, entre Carrasco y Pasoskanky, Zona Miraflores, La Paz
+- Teléfono: 2228261
+- Email: santaanasrlcontacto@gmail.com
+
+GIROS NACIONALES:
+- Monto mínimo: Bs. 50 | Máximo: Bs. 5,000
+- Comisión: 2% (mínimo Bs. 5)
+- Tiempo: inmediato (minutos)
+- Horario: L-S 8:00–18:00 / Dom 9:00–13:00
+
+CÓMO REALIZAR UN GIRO (ENVIAR):
+1. Presentarse en cualquier agencia portando cédula de identidad vigente
+2. Proporcionar toda la información que los funcionarios requieran:
+   - Nombre del beneficiario
+   - Dirección/ciudad de destino
+   - Celular del beneficiario (opcional)
+   - Monto a enviar
+3. Verificar los datos del envío antes de que sea procesado
+4. Una vez realizada la transacción, firmar el recibo y exigir la factura correspondiente
+
+CÓMO COBRAR UN GIRO (RECIBIR):
+1. Presentarse en cualquier agencia con cédula de identidad vigente
+2. Proporcionar el código del giro
+3. Verificar los datos del recibo antes de que sea procesado
+4. Firmar el recibo y exigir la factura
+
+CASA DE CAMBIO - CÓMO REALIZAR UN CAMBIO DE MONEDA:
+1. Presentarse en cualquier agencia con cédula de identidad vigente y en buen estado
+2. Proporcionar toda la información requerida
+3. Verificar los datos antes de la transacción
+4. Una vez completada, firmar el recibo y exigir su factura
+
+AGENCIAS PRINCIPALES (muestra parcial):
+- La Paz: C. Jorge Baenz Nº 1069 entre Haití y Honduras, Zona Miraflores (Sede Central)
+- Cochabamba: C. Hamiraya Nº 345 Zona Central
+- Santa Cruz de la Sierra: C. René Moreno Nº 490, 2do Anillo
+- Trinidad (Beni): C. Antonio José de Sucre Nº 466 Zona Central
+- Cobija (Pando): Av. 9 de Febrero S/N Zona Central
+- Riberalta (Beni): Av. Ejército Nacional Nº 530 Zona Central
+- Rurrenabaque (Beni): C. Comercio S/N Zona Central
+- Caranavi (La Paz): C. Bolívar S/N Interior Galería Bolívar
+- Guayaramerín (Beni): C. Beni Nº 15 Zona Central
+- San Borja (Beni): C. Cochabamba S/N Zona Central
+- Y más de 32 agencias en todo Bolivia
+
+GUÍA DE RECLAMOS:
+- El punto de reclamo está identificado con un cartel con el símbolo correspondiente
+- Reclamos: verbal o escrito, adjuntando documentación necesaria
+- El funcionario registra el reclamo y entrega constancia con fecha de respuesta
+- Plazo de respuesta: 5 días hábiles (puede ampliarse según complejidad)
+- Si no está conforme, puede acudir a ASFI: www.asfi.gob.bo
+
+DERECHOS DEL CONSUMIDOR (Ley Nº 393):
+- Acceso a servicios financieros con trato equitativo
+- Recibir información fidedigna y clara sobre productos y servicios
+- Todos los usuarios deben presentar cédula de identidad vigente
+
+TIPOLOGÍAS DE FRAUDE (alertas):
+- Desconfíe si alguien le pide realizar un giro para recibir un premio no solicitado
+- Desconfíe de promesas de premios o ganancias a cambio de enviar dinero
+- RECUERDE: Un giro se puede PAGAR AL BENEFICIARIO EN PLAZO MUY BREVE. Una vez pagado, NO SE PUEDE OBTENER REEMBOLSO.
+
+REGLAS:
+- Responde en español boliviano, amable y conciso (máx. 4 oraciones)
+- Nunca inventes información fuera de este contexto
+- Si necesita agente humano, usa: [DERIVAR_AGENTE]
+- Si piden servicios no ofrecidos, explica amablemente`;
+
+let msgs = [];
+let loading = false;
+let chatOpen = false;
+
+const quickOpts = [
+  "¿Cómo envío un giro?",
+  "¿Cuánto cobran de comisión?",
+  "¿Dónde están las sucursales?",
+  "¿Qué documentos necesito?",
+  "¿Cuánto tarda en llegar?",
+  "Hablar con un agente"
+];
+
+// ══ TOGGLE CHAT ══
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chatFab').classList.toggle('open', chatOpen);
+  document.getElementById('chatWindow').classList.toggle('open', chatOpen);
+  document.getElementById('chatBadge').classList.add('hidden');
+  document.getElementById('chatTooltip').classList.add('hidden');
+  if (chatOpen && msgs.length === 0) initChat();
+}
+
+function initChat() {
+  setTimeout(() => {
+    addMsg('bot', '¡Bienvenido/a a **Santa Ana Expreso Amazonas S.R.L.**! 👋\n\n Soy tu asistente virtual de **Giros Nacionales**. ¿En qué te puedo ayudar hoy?');
+    renderQuick(true);
+  }, 300);
+}
+
+// ══ MENSAJES ══
+function addMsg(role, text) {
+  msgs.push({ role, content: text });
+  const box = document.getElementById('chatMsgs');
+  const row = document.createElement('div');
+  row.className = 'msg-row ' + role;
+
+  const av = document.createElement('div');
+  av.className = 'av ' + role;
+  if (role === 'bot') {
+    av.textContent = '🕊️';
+    av.style.fontSize = '16px';
+  } else { av.textContent = 'Tú'; }
+
+  const bub = document.createElement('div');
+  bub.className = 'bubble ' + role;
+  bub.innerHTML = fmt(text);
+
+  row.appendChild(av); row.appendChild(bub);
+  box.appendChild(row);
+  box.scrollTop = box.scrollHeight;
+}
+
+function fmt(t) {
+  return t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>')
+          .replace(/\*(.*?)\*/g,'<span class="amt">$1</span>')
+          .replace(/\n/g,'<br>');
+}
+
+function showTyping() {
+  const box = document.getElementById('chatMsgs');
+  const row = document.createElement('div');
+  row.className = 'msg-row bot'; row.id = 'typing';
+  const av = document.createElement('div'); av.className = 'av bot';
+  av.textContent = '🕊️'; av.style.fontSize = '16px';
+  const bub = document.createElement('div'); bub.className = 'bubble bot';
+  bub.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+  row.appendChild(av); row.appendChild(bub);
+  box.appendChild(row); box.scrollTop = box.scrollHeight;
+}
+function removeTyping() { const el = document.getElementById('typing'); if(el) el.remove(); }
+
+function renderQuick(show) {
+  const wrap = document.getElementById('chatQuick');
+  wrap.innerHTML = '';
+  if (!show) return;
+  quickOpts.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'qbtn'; btn.textContent = q;
+    btn.onclick = () => { document.getElementById('chatInput').value = q; handleSend(); };
+    wrap.appendChild(btn);
+  });
+}
+
+// ══ API ══
+async function callClaude(userMsg) {
+  const apiMsgs = msgs.slice(0,-1).map(m => ({ role: m.role==='bot'?'assistant':'user', content: m.content }));
+  apiMsgs.push({ role: 'user', content: userMsg });
+  const res = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'anthropic-dangerous-direct-browser-access': 'true'
+    },
+    body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 1000, system: SYSTEM, messages: apiMsgs })
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    console.error('API error:', res.status, err);
+    return `Lo siento, ocurrió un error (${res.status}). Por favor intenta de nuevo.`;
+  }
+  const data = await res.json();
+  return data.content?.map(b => b.text||'').join('') || 'Lo siento, hubo un error. Intenta de nuevo.';
+}
+
+async function handleSend() {
+  const input = document.getElementById('chatInput');
+  const sendBtn = document.getElementById('chatSend');
+  const text = input.value.trim();
+  if (!text || loading) return;
+  input.value = ''; input.style.height = 'auto';
+  loading = true; sendBtn.disabled = true;
+  renderQuick(false);
+  addMsg('user', text);
+  showTyping();
+  try {
+    const reply = await callClaude(text);
+    removeTyping();
+    if (reply.includes('[DERIVAR_AGENTE]')) {
+      addMsg('bot', reply.replace('[DERIVAR_AGENTE]','').trim() || '¡Claro! Te conecto con un agente. 😊');
+      document.getElementById('agentBanner').classList.add('visible');
+    } else { addMsg('bot', reply); }
+  } catch(e) {
+    removeTyping();
+    addMsg('bot', 'Ups, problema de conexión. Por favor intenta de nuevo. 🙏');
+  }
+  loading = false; sendBtn.disabled = false;
+  renderQuick(true);
+}
+
+function connectAgent() {
+  document.getElementById('agentBanner').classList.remove('visible');
+  addMsg('bot', '✅ Te hemos conectado con un agente de **Santa Ana Expreso Amazonas**. En breve se comunicarán contigo. ¡Gracias por tu paciencia!');
+}
+
+// ══ INPUT AUTO-RESIZE ══
+document.getElementById('chatInput').addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 90) + 'px';
+});
+document.getElementById('chatInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); handleSend(); }
+});
+
+// ══ NAVBAR SCROLL ══
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ══ SCROLL REVEAL ══
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ══ SMOOTH SCROLL ══
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ══ FAB BUTTON ══
+document.getElementById('chatFab').addEventListener('click', function() {
+  toggleChat();
+});
+
+// ══ SPA ROUTER ══
+function showPage(pageId) {
+  document.querySelectorAll('.spa-page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + pageId).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Marcar link activo
+  document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
+    a.classList.toggle('nav-active', a.dataset.page === pageId);
+  });
+  // Actualizar pasos del demo con la página actual
+  currentPage = pageId;
+}
+let currentPage = 'home';
+
+
+</script>
+</body>
+</html>
