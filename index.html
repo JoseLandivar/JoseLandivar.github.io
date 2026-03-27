@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Santa Ana — Panel Administrador</title>
+<title>Santa Ana S.R.L. — Casa de Cambio · Expreso Amazonas</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -421,284 +421,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 }
 .ftip span:first-child { font-size: 18px; flex-shrink: 0; }
 
-/* ══ GESTIÓN INLINE SUCURSALES (admin) ══ */
-.suc-mgmt-bar {
-  background: white; border-bottom: 2px solid var(--borde);
-  padding: 14px 56px; display:flex; align-items:center;
-  justify-content:space-between;
-}
-.suc-mgmt-btn {
-  background: var(--v); color: white; border:none;
-  padding: 10px 20px; border-radius: 30px; font-size:13px;
-  font-weight:800; cursor:pointer; font-family:'Nunito',sans-serif;
-  transition: all .2s;
-}
-.suc-mgmt-btn:hover { background:var(--v2); transform:translateY(-1px); }
-.suc-inline-form {
-  background: var(--gris); border-bottom: 2px solid var(--borde);
-  padding: 20px 56px;
-}
-.suc-inline-grid {
-  display: grid; grid-template-columns: repeat(4,1fr); gap:10px;
-}
-.suc-inline-input {
-  background: white; border: 1.5px solid var(--borde);
-  border-radius:10px; padding:10px 14px; color:var(--txt);
-  font-family:'Nunito',sans-serif; font-size:13px;
-  outline:none; transition:border .2s; width:100%;
-}
-.suc-inline-input:focus { border-color:var(--v); }
-.suc-inline-save {
-  background:var(--v); color:white; border:none;
-  border-radius:10px; padding:10px 22px; font-family:'Nunito',sans-serif;
-  font-size:13px; font-weight:800; cursor:pointer; transition:all .2s;
-}
-.suc-inline-save:hover { background:var(--v2); }
-.suc-inline-cancel {
-  background:white; color:var(--txt2); border:1.5px solid var(--borde);
-  border-radius:10px; padding:10px 22px; font-family:'Nunito',sans-serif;
-  font-size:13px; font-weight:700; cursor:pointer; transition:all .2s;
-}
-.suc-inline-cancel:hover { border-color:var(--txt2); color:var(--txt); }
-/* Botón eliminar en cada card (solo admin) */
-.suc-card { position:relative; }
-.suc-card .btn-del-card {
-  position:absolute; top:6px; right:6px;
-  background:rgba(229,62,62,.1); border:1px solid rgba(229,62,62,.2);
-  color:#e53e3e; border-radius:6px; width:22px; height:22px;
-  font-size:12px; cursor:pointer; display:flex; align-items:center;
-  justify-content:center; transition:all .2s; line-height:1;
-}
-.suc-card .btn-del-card:hover { background:#e53e3e; color:white; }
 
-/* ══ ADMIN TABS ══ */
-.admin-tabs { display:flex; gap:8px; margin-bottom:20px; }
-.atab {
-  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
-  color: rgba(255,255,255,.5); font-family:'Nunito',sans-serif;
-  font-size:13px; font-weight:700; padding:9px 18px; border-radius:10px;
-  cursor:pointer; transition:all .2s;
-}
-.atab:hover { background:rgba(255,255,255,.12); color:white; }
-.atab.active { background:var(--v); border-color:var(--v); color:white; }
-
-/* ══ GESTOR SUCURSALES ══ */
-.suc-form {
-  display:grid; grid-template-columns:1fr 1fr; gap:8px;
-  margin-bottom:20px;
-}
-.suc-input {
-  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
-  border-radius:10px; padding:10px 14px; color:white;
-  font-family:'Nunito',sans-serif; font-size:13px;
-  outline:none; transition:border .2s;
-}
-.suc-input::placeholder { color:rgba(255,255,255,.3); }
-.suc-input:focus { border-color:var(--vc); }
-.suc-add-btn {
-  grid-column: span 2;
-  background:var(--v); color:white; border:none;
-  border-radius:10px; padding:11px; font-family:'Nunito',sans-serif;
-  font-size:13px; font-weight:800; cursor:pointer; transition:all .2s;
-}
-.suc-add-btn:hover { background:var(--v2); }
-.suc-admin-list {
-  display:flex; flex-direction:column; gap:6px;
-  max-height:320px; overflow-y:auto;
-}
-.suc-admin-list::-webkit-scrollbar { width:3px; }
-.suc-admin-list::-webkit-scrollbar-thumb { background:rgba(255,255,255,.15); border-radius:3px; }
-.suc-admin-row {
-  display:flex; align-items:center; gap:10px;
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07);
-  border-radius:10px; padding:10px 14px; transition:background .2s;
-}
-.suc-admin-row:hover { background:rgba(255,255,255,.08); }
-.suc-admin-info { flex:1; }
-.suc-admin-ciudad { font-size:13px; font-weight:800; color:white; }
-.suc-admin-dir { font-size:11px; color:rgba(255,255,255,.45); margin-top:2px; }
-.suc-admin-depto { font-size:10px; color:var(--y2); font-weight:700; margin-top:1px; }
-.suc-del-btn {
-  background:rgba(229,62,62,.15); border:1px solid rgba(229,62,62,.3);
-  color:#fc8181; border-radius:8px; padding:5px 10px;
-  font-size:11px; font-weight:800; cursor:pointer; font-family:'Nunito',sans-serif;
-  transition:all .2s; flex-shrink:0;
-}
-.suc-del-btn:hover { background:rgba(229,62,62,.3); color:white; }
-.suc-new-badge {
-  background:rgba(58,173,86,.2); border:1px solid rgba(58,173,86,.3);
-  color:var(--vc); font-size:9px; font-weight:800; padding:2px 7px;
-  border-radius:6px; letter-spacing:.5px; flex-shrink:0;
-}
-
-/* ══ PANEL ADMIN ══ */
-.admin-overlay {
-  display: none; position: fixed; inset: 0; z-index: 900;
-  background: rgba(10,20,12,.75); backdrop-filter: blur(6px);
-  align-items: center; justify-content: center;
-}
-.admin-overlay.open { display: flex; }
-.admin-panel {
-  background: var(--v3); border-radius: 24px;
-  width: min(780px, 95vw); max-height: 90vh; overflow-y: auto;
-  padding: 36px; box-shadow: 0 32px 80px rgba(0,0,0,.4);
-  border: 1px solid rgba(255,255,255,.07);
-  animation: panelIn .35s cubic-bezier(.16,1,.3,1);
-}
-@keyframes panelIn { from{transform:scale(.92);opacity:0} to{transform:scale(1);opacity:1} }
-.admin-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
-.admin-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: white; }
-.admin-close { background: rgba(255,255,255,.08); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; font-size: 18px; cursor: pointer; transition: background .2s; }
-.admin-close:hover { background: rgba(255,255,255,.15); }
-.admin-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 28px; }
-.astat {
-  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
-  border-radius: 14px; padding: 18px; text-align: center;
-}
-.astat-n { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; color: var(--y3); }
-.astat-l { font-size: 11px; color: rgba(255,255,255,.45); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: .8px; }
-.admin-sub { font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--y2); margin-bottom: 12px; }
-.admin-faq { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
-.afaq-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.04); border-radius: 10px; padding: 10px 14px; }
-.afaq-bar-wrap { flex: 1; height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
-.afaq-bar { height: 100%; background: linear-gradient(90deg, var(--vc), var(--y2)); border-radius: 3px; transition: width 1s ease; }
-.afaq-q { font-size: 12px; color: rgba(255,255,255,.7); min-width: 200px; }
-.afaq-n { font-size: 12px; font-weight: 800; color: var(--y3); min-width: 28px; text-align: right; }
-.admin-log { background: rgba(0,0,0,.2); border-radius: 12px; padding: 14px; font-size: 12px; color: rgba(255,255,255,.5); font-family: monospace; max-height: 140px; overflow-y: auto; }
-.log-line { padding: 3px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
-.log-line:last-child { border-bottom: none; }
-.log-time { color: var(--y2); margin-right: 8px; }
-.log-user { color: var(--vc); }
-.log-bot { color: rgba(255,255,255,.4); }
-
-
-
-/* ══ BANNER NOTIFICACIONES CIERRE ══ */
-.notif-item {
-  display: flex; align-items: center; gap: 12px;
-  padding: 11px 56px; font-size: 13px; font-weight: 600;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-  animation: slideDown .4s cubic-bezier(.16,1,.3,1);
-}
-@keyframes slideDown { from{transform:translateY(-100%);opacity:0} to{transform:translateY(0);opacity:1} }
-.notif-item.tipo-cierre { background:#fff8e1; color:#7d4e00; }
-.notif-item.tipo-aviso  { background:#e8f5e9; color:#1B6B2F; }
-.notif-icon { font-size:18px; flex-shrink:0; }
-.notif-txt  { flex:1; }
-.notif-txt strong { font-weight:800; }
-.notif-fecha { font-size:11px; color:rgba(0,0,0,.4); font-weight:600; white-space:nowrap; }
-.notif-close {
-  background:none; border:none; cursor:pointer; font-size:16px;
-  color:rgba(0,0,0,.3); transition:color .2s; padding:2px 4px;
-}
-.notif-close:hover { color:rgba(0,0,0,.7); }
-
-/* ══ MODAL EDITAR SUCURSAL ══ */
-.edit-overlay {
-  display:none; position:fixed; inset:0; z-index:1000;
-  background:rgba(10,20,12,.8); backdrop-filter:blur(6px);
-  align-items:center; justify-content:center;
-}
-.edit-overlay.open { display:flex; }
-.edit-modal {
-  background:white; border-radius:22px; width:min(520px,94vw);
-  padding:32px; box-shadow:0 32px 80px rgba(0,0,0,.25);
-  animation:panelIn .3s cubic-bezier(.16,1,.3,1);
-}
-.edit-modal-title { font-family:'Playfair Display',serif; font-size:20px; font-weight:900; color:var(--txt); margin-bottom:4px; }
-.edit-modal-sub { font-size:13px; color:var(--txt2); margin-bottom:24px; }
-.edit-section { margin-bottom:20px; }
-.edit-label { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:var(--txt2); margin-bottom:8px; display:block; }
-.edit-field {
-  width:100%; background:var(--gris); border:1.5px solid var(--borde);
-  border-radius:10px; padding:11px 14px; color:var(--txt);
-  font-family:'Nunito',sans-serif; font-size:13px; outline:none; transition:border .2s;
-}
-.edit-field:focus { border-color:var(--v); background:white; }
-.edit-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.edit-divider { height:1px; background:var(--borde); margin:20px 0; }
-.edit-cierre-toggle {
-  display:flex; align-items:center; gap:12px; cursor:pointer;
-  background:var(--gris); border:1.5px solid var(--borde);
-  border-radius:12px; padding:14px 16px; transition:all .2s; margin-bottom:14px;
-}
-.edit-cierre-toggle:hover { border-color:var(--y); }
-.edit-cierre-toggle.active { background:#fffbf0; border-color:var(--y); }
-.edit-toggle-ico { font-size:22px; flex-shrink:0; }
-.edit-toggle-txt { flex:1; }
-.edit-toggle-title { font-size:13px; font-weight:800; color:var(--txt); }
-.edit-toggle-sub { font-size:11px; color:var(--txt2); margin-top:2px; }
-.edit-toggle-switch {
-  width:40px; height:22px; border-radius:11px; background:var(--borde);
-  position:relative; transition:background .2s; flex-shrink:0;
-}
-.edit-toggle-switch::after {
-  content:''; position:absolute; top:3px; left:3px;
-  width:16px; height:16px; border-radius:50%; background:white;
-  transition:transform .2s; box-shadow:0 1px 4px rgba(0,0,0,.2);
-}
-.edit-cierre-toggle.active .edit-toggle-switch { background:var(--y); }
-.edit-cierre-toggle.active .edit-toggle-switch::after { transform:translateX(18px); }
-.edit-cierre-fields { display:grid; grid-template-columns:1fr 1fr; gap:10px; animation:fadeUp .3s ease; }
-.edit-modal-btns { display:flex; gap:10px; margin-top:24px; }
-.edit-save-btn {
-  flex:1; background:var(--v); color:white; border:none;
-  border-radius:12px; padding:13px; font-family:'Nunito',sans-serif;
-  font-size:14px; font-weight:800; cursor:pointer; transition:all .2s;
-}
-.edit-save-btn:hover { background:var(--v2); }
-.edit-cancel-btn {
-  background:var(--gris); color:var(--txt2); border:1.5px solid var(--borde);
-  border-radius:12px; padding:13px 22px; font-family:'Nunito',sans-serif;
-  font-size:14px; font-weight:700; cursor:pointer; transition:all .2s;
-}
-.edit-cancel-btn:hover { border-color:var(--txt2); }
-
-/* Estado cerrado en suc-card */
-.suc-card.cerrada { border-color:#f6c23e !important; background:#fffbf0; }
-.suc-card.cerrada .suc-dot { background:#f6c23e; box-shadow:0 0 8px rgba(246,194,62,.5); }
-.suc-card.cerrada .suc-h { color:#d69e2e; }
-.suc-aviso {
-  font-size:10px; color:#d69e2e; font-weight:700; margin-top:5px;
-  background:#fef3cd; border-radius:6px; padding:3px 7px; display:inline-block;
-}
-/* Botón editar en card */
-.suc-card .btn-edit-card {
-  position:absolute; top:6px; right:30px;
-  background:rgba(27,107,47,.1); border:1px solid rgba(27,107,47,.2);
-  color:var(--v); border-radius:6px; width:22px; height:22px;
-  font-size:11px; cursor:pointer; display:flex; align-items:center;
-  justify-content:center; transition:all .2s;
-}
-.suc-card .btn-edit-card:hover { background:var(--v); color:white; }
-/* Fila en admin-list con estado */
-.suc-admin-row.cerrada { border-color:rgba(246,194,62,.4); background:rgba(255,251,240,.05); }
-.suc-status-badge {
-  font-size:10px; font-weight:800; padding:3px 8px; border-radius:6px; flex-shrink:0;
-}
-.suc-status-badge.abierta { background:rgba(58,173,86,.15); color:var(--vc); }
-.suc-status-badge.cerrada { background:rgba(246,194,62,.2); color:#d69e2e; }
-/* Botón editar en admin-list */
-.suc-edit-btn {
-  background:rgba(27,107,47,.15); border:1px solid rgba(27,107,47,.25);
-  color:var(--v); border-radius:8px; padding:5px 10px;
-  font-size:11px; font-weight:800; cursor:pointer; font-family:'Nunito',sans-serif;
-  transition:all .2s; flex-shrink:0;
-}
-.suc-edit-btn:hover { background:var(--v); color:white; }
-
-/* ══ BOTÓN ADMIN FLOTANTE ══ */
-.admin-fab {
-  position: fixed; bottom: 84px; left: 28px; z-index: 500;
-  background: var(--v3); color: white; border: none;
-  padding: 14px 22px; border-radius: 50px; font-size: 13px; font-weight: 800;
-  cursor: pointer; font-family: 'Nunito', sans-serif;
-  box-shadow: 0 8px 28px rgba(15,74,31,.45);
-  display: flex; align-items: center; gap: 8px;
-  animation: fabIn .6s cubic-bezier(.16,1,.3,1) 1.8s both;
-  transition: all .2s;
-}
-.admin-fab:hover { background: var(--v); transform: translateY(-2px); }
 
 /* ══ SPA ══ */
 .spa-page { display: none; }
@@ -918,11 +641,25 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
   .suc-grid { grid-template-columns: repeat(3,1fr); }
 }
 @media(max-width:768px) {
-  nav { padding: 0 20px; }
+  nav { padding: 0 16px; }
   .nav-links { display: none; }
-  section, .hero { padding-left: 20px; padding-right: 20px; }
-  .hero { padding-top: 100px; }
-  .how-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: fixed; top: 72px; left: 0; right: 0;
+    background: white; border-bottom: 1px solid var(--borde);
+    padding: 12px 0; z-index: 199;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+  }
+  .nav-links.open a { padding: 12px 24px; font-size: 15px; border-bottom: 1px solid var(--gris); }
+  .nav-links.open .nav-cta { margin: 10px 16px; border-radius: 30px; text-align: center; }
+  .nav-hamburger { display: flex; }
+  section { padding-left: 16px; padding-right: 16px; padding-top: 60px; padding-bottom: 60px; }
+  .hero { padding: 100px 16px 60px; min-height: auto; }
+  .hero-title { font-size: clamp(32px, 8vw, 52px); }
+  .hero-title-sub { font-size: clamp(22px, 5vw, 34px); }
+  .hero-stats { flex-wrap: wrap; border-radius: 14px; }
+  .hst { padding: 14px 16px; }
+  .how-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
   .how-grid::before { display: none; }
   .feat-grid { grid-template-columns: 1fr; }
   .req-grid { grid-template-columns: 1fr; }
@@ -931,12 +668,40 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
   .fraude-tips { grid-template-columns: 1fr; }
   .suc-grid { grid-template-columns: repeat(2,1fr); }
   .testi-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .cta-wrap { margin: 0 20px 80px; }
-  .cta-box { padding: 40px 28px; }
-  .chat-window { width: calc(100vw - 32px); right: 16px; bottom: 90px; }
-  .chat-fab { right: 16px; bottom: 16px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; padding: 40px 16px; }
+  .cta-wrap { margin: 0 16px 60px; }
+  .cta-box { padding: 32px 20px; flex-direction: column; }
+  .rates-layout { grid-template-columns: 1fr; }
+  .chat-window { width: calc(100vw - 24px); right: 12px; bottom: 86px; height: 70vh; }
+  .chat-fab { right: 12px; bottom: 12px; }
+  .page-hero { padding: 90px 16px 36px; }
+  .suc-mgmt-bar { padding: 12px 16px; }
+  .suc-inline-form { padding: 16px; }
+  .suc-inline-grid { grid-template-columns: 1fr; }
 }
+@media(max-width:480px) {
+  .how-grid { grid-template-columns: 1fr; }
+  .asfi-grid { grid-template-columns: 1fr; }
+  .fraude-grid { grid-template-columns: 1fr; }
+  .suc-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero-stats { width: 100%; }
+  .hst { flex: 1; min-width: 80px; }
+  .hero-btns { flex-direction: column; }
+  .btn-main, .btn-sec { width: 100%; text-align: center; justify-content: center; }
+}
+/* Hamburger button */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 8px;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--txt); border-radius: 2px; transition: all .3s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 </style>
 </head>
 <body>
@@ -950,18 +715,18 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
       <div style="font-size:10px;font-weight:700;color:var(--txt2);letter-spacing:.5px">EXPRESO AMAZONAS</div>
     </div>
   </a>
-  <div class="nav-links">
-    <a href="#" onclick="showPage('home')" data-page="home">Inicio</a>
-    <a href="#" onclick="showPage('tarifas')" data-page="tarifas">Tarifas</a>
-    <a href="#" onclick="showPage('sucursales')" data-page="sucursales">Sucursales</a>
-    <a href="#" onclick="showPage('asfi')" data-page="asfi">ASFI</a>
-    <a href="#" onclick="showPage('fraude')" data-page="fraude">⚠️ Alertas</a>
-    <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contacto').scrollIntoView({behavior:'smooth'}),300)" class="nav-cta">Consultar Giro</a>
+  <div class="nav-links" id="navLinks">
+    <a href="#" onclick="showPage('home');closeMenu()" data-page="home">Inicio</a>
+    <a href="#" onclick="showPage('tarifas');closeMenu()" data-page="tarifas">Tarifas</a>
+    <a href="#" onclick="showPage('sucursales');closeMenu()" data-page="sucursales">Sucursales</a>
+    <a href="#" onclick="showPage('asfi');closeMenu()" data-page="asfi">ASFI</a>
+    <a href="#" onclick="showPage('fraude');closeMenu()" data-page="fraude">⚠️ Alertas</a>
+    <a href="#" onclick="showPage('home');setTimeout(()=>document.getElementById('contacto').scrollIntoView({behavior:'smooth'}),300);closeMenu()" class="nav-cta">Consultar Giro</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
-<!-- ══ BANNER NOTIFICACIONES CIERRE ══ -->
-<div id="notifBanner" style="display:none;position:fixed;top:72px;left:0;right:0;z-index:190"></div>
 
 <!-- ══ PAGE: HOME ══ -->
 <div id="page-home" class="spa-page active">
@@ -1206,62 +971,44 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 <!-- ══ PAGE: SUCURSALES ══ -->
 <div id="page-sucursales" class="spa-page">
   <div class="page-hero"><div class="page-hero-back" onclick="showPage('home')">← Inicio</div><div class="page-hero-title">📍 Sucursales</div><div class="page-hero-sub">+32 agencias en todo Bolivia</div></div>
-
-  <!-- BARRA DE GESTIÓN ADMIN (solo visible en versión admin) -->
-  <div class="suc-mgmt-bar">
-    <div style="font-size:14px;font-weight:700;color:var(--txt)">⚙️ Gestión de Sucursales</div>
-    <button class="suc-mgmt-btn" onclick="toggleSucForm()">➕ Agregar sucursal</button>
-  </div>
-  <div class="suc-inline-form" id="sucInlineForm" style="display:none">
-    <div class="suc-inline-grid">
-      <input class="suc-inline-input" id="iSucCiudad" placeholder="Ciudad / Nombre *" />
-      <input class="suc-inline-input" id="iSucDir" placeholder="Dirección *" />
-      <input class="suc-inline-input" id="iSucDepto" placeholder="Departamento (ej: Beni)" />
-      <input class="suc-inline-input" id="iSucHorario" placeholder="Horario (ej: L-S 8:00–18:00)" />
-    </div>
-    <div style="display:flex;gap:10px;margin-top:12px">
-      <button class="suc-inline-save" onclick="agregarSucursalInline()">✓ Guardar sucursal</button>
-      <button class="suc-inline-cancel" onclick="toggleSucForm()">Cancelar</button>
-    </div>
-  </div>
   <section class="suc" style="padding-top:60px">
     <div class="suc-header reveal" style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;flex-wrap:wrap;gap:16px">
       <div><div class="stag">Cobertura</div><h2 class="stitle">+32 agencias en todo Bolivia 🇧🇴</h2></div>
       <p class="ssub">Presentes en La Paz, Beni, Santa Cruz, Pando y más departamentos del país.</p>
     </div>
     <div class="suc-grid reveal">
-      <div class="suc-card" id="scard-0"><div class="suc-dot"></div><div class="suc-c">La Paz</div><div class="suc-n">C. Jorge Baenz Nº 1069 entre Haití y Honduras, Z. Miraflores</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-1"><div class="suc-dot"></div><div class="suc-c">Magdalena</div><div class="suc-n">Beni — C. Federico Zampieri S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-2"><div class="suc-dot"></div><div class="suc-c">Cochabamba</div><div class="suc-n">C. Hamiraya Nº 345 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-3"><div class="suc-dot"></div><div class="suc-c">Santa Rosa de Yauma</div><div class="suc-n">Beni — C. Miguel Simón S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-4"><div class="suc-dot"></div><div class="suc-c">Cobija</div><div class="suc-n">Pando — Av. 9 de Febrero S/N Zona Central</div><div class="suc-h">L-S 8:00–17:00</div></div>
-      <div class="suc-card" id="scard-5"><div class="suc-dot"></div><div class="suc-c">Santa Cruz de la Sierra</div><div class="suc-n">C. René Moreno Nº 490, 2do Anillo</div><div class="suc-h">L-S 8:00–19:00</div></div>
-      <div class="suc-card" id="scard-6"><div class="suc-dot"></div><div class="suc-c">Trinidad</div><div class="suc-n">Beni — C. Antonio José de Sucre Nº 466 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-7"><div class="suc-dot"></div><div class="suc-c">Guayaramerín</div><div class="suc-n">Beni — C. Beni Nº 15 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-8"><div class="suc-dot"></div><div class="suc-c">San Buenaventura</div><div class="suc-n">La Paz — C. Daniel Salamanca S/N Esq. Bautista Saavedra</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-9"><div class="suc-dot"></div><div class="suc-c">Yacumo</div><div class="suc-n">Beni — C. 16 de Julio Zona Pacajes</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-10"><div class="suc-dot"></div><div class="suc-c">San Borja</div><div class="suc-n">Beni — C. Cochabamba S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-11"><div class="suc-dot"></div><div class="suc-c">Rurrenabaque</div><div class="suc-n">Beni — C. Comercio S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-12"><div class="suc-dot"></div><div class="suc-c">Santa Ana de Yacuma</div><div class="suc-n">Beni — C. Santa Cruz Nº 51 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-13"><div class="suc-dot"></div><div class="suc-c">Reyes</div><div class="suc-n">Beni — C. Virgen de Fátima Nº 08 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-14"><div class="suc-dot"></div><div class="suc-c">Riberalta</div><div class="suc-n">Beni — Av. Ejército Nacional Nº 530 Zona Central</div><div class="suc-h">L-S 8:00–17:00</div></div>
-      <div class="suc-card" id="scard-15"><div class="suc-dot"></div><div class="suc-c">San Ignacio de Moxos</div><div class="suc-n">Beni — C. Santiesteban S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-16"><div class="suc-dot"></div><div class="suc-c">San Joaquín</div><div class="suc-n">Beni — C. Avaroa Nº 11 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-17"><div class="suc-dot"></div><div class="suc-c">Huacaraje</div><div class="suc-n">Beni — C. 24 de Septiembre Nº 54 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-18"><div class="suc-dot"></div><div class="suc-c">Perú Río Apere</div><div class="suc-n">Beni — C. Sin Nombre, Perú Río Apare, Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-19"><div class="suc-dot"></div><div class="suc-c">Tumpasa</div><div class="suc-n">Beni — C. Constitución S/N entre 21 de Diciembre y Murillo Zona Maracani</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-20"><div class="suc-dot"></div><div class="suc-c">Baures</div><div class="suc-n">Beni — C. 6 de Agosto S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-21"><div class="suc-dot"></div><div class="suc-c">San Ramón del Beni</div><div class="suc-n">Beni — C. Coronel Viera Nº 132 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-22"><div class="suc-dot"></div><div class="suc-c">Palos Blancos</div><div class="suc-n">La Paz — Av. Antofagasta Nº 141 Esq. Avenida</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-23"><div class="suc-dot"></div><div class="suc-c">Bella Vista</div><div class="suc-n">Beni — C. 18 de Noviembre S/N Zona San</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-24"><div class="suc-dot"></div><div class="suc-c">El Carmen del Itenez</div><div class="suc-n">Beni — C. Jorge Suarez Vidal S/N 27 de Mayo</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-25"><div class="suc-dot"></div><div class="suc-c">Ixtamas</div><div class="suc-n">La Paz — C. América S/N Hotel Tajibo</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-26"><div class="suc-dot"></div><div class="suc-c">San Javier de Chiquitos</div><div class="suc-n">Beni — Av. Padre José de Arce S/N Esq. 24 de Septiembre</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-27"><div class="suc-dot"></div><div class="suc-c">Caranavi</div><div class="suc-n">La Paz — C. Bolívar S/N Interior Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-28"><div class="suc-dot"></div><div class="suc-c">San José de Chiquitos</div><div class="suc-n">Beni — C. Bolívar S/N Interior Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-29"><div class="suc-dot"></div><div class="suc-c">San Matías</div><div class="suc-n">La Paz — C. Donato Yabari Barrio Virgen de Cotoca</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-30"><div class="suc-dot"></div><div class="suc-c">Robore</div><div class="suc-n">Beni — C. Donato Yabari Barrio Virgen de Cotoca</div><div class="suc-h">L-S 8:00–18:00</div></div>
-      <div class="suc-card" id="scard-31"><div class="suc-dot"></div><div class="suc-c">Puerto Suarez</div><div class="suc-n">Beni — C. Chuquisaca Nº 26 Radio TV Cultura</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">La Paz</div><div class="suc-n">C. Jorge Baenz Nº 1069 entre Haití y Honduras, Z. Miraflores</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Magdalena</div><div class="suc-n">Beni — C. Federico Zampieri S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Cochabamba</div><div class="suc-n">C. Hamiraya Nº 345 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Rosa de Yauma</div><div class="suc-n">Beni — C. Miguel Simón S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Cobija</div><div class="suc-n">Pando — Av. 9 de Febrero S/N Zona Central</div><div class="suc-h">L-S 8:00–17:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Cruz de la Sierra</div><div class="suc-n">C. René Moreno Nº 490, 2do Anillo</div><div class="suc-h">L-S 8:00–19:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Trinidad</div><div class="suc-n">Beni — C. Antonio José de Sucre Nº 466 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Guayaramerín</div><div class="suc-n">Beni — C. Beni Nº 15 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Buenaventura</div><div class="suc-n">La Paz — C. Daniel Salamanca S/N Esq. Bautista Saavedra</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Yacumo</div><div class="suc-n">Beni — C. 16 de Julio Zona Pacajes</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Borja</div><div class="suc-n">Beni — C. Cochabamba S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Rurrenabaque</div><div class="suc-n">Beni — C. Comercio S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Santa Ana de Yacuma</div><div class="suc-n">Beni — C. Santa Cruz Nº 51 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Reyes</div><div class="suc-n">Beni — C. Virgen de Fátima Nº 08 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Riberalta</div><div class="suc-n">Beni — Av. Ejército Nacional Nº 530 Zona Central</div><div class="suc-h">L-S 8:00–17:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Ignacio de Moxos</div><div class="suc-n">Beni — C. Santiesteban S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Joaquín</div><div class="suc-n">Beni — C. Avaroa Nº 11 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Huacaraje</div><div class="suc-n">Beni — C. 24 de Septiembre Nº 54 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Perú Río Apere</div><div class="suc-n">Beni — C. Sin Nombre, Perú Río Apare, Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Tumpasa</div><div class="suc-n">Beni — C. Constitución S/N entre 21 de Diciembre y Murillo Zona Maracani</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Baures</div><div class="suc-n">Beni — C. 6 de Agosto S/N Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Ramón del Beni</div><div class="suc-n">Beni — C. Coronel Viera Nº 132 Zona Central</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Palos Blancos</div><div class="suc-n">La Paz — Av. Antofagasta Nº 141 Esq. Avenida</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Bella Vista</div><div class="suc-n">Beni — C. 18 de Noviembre S/N Zona San</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">El Carmen del Itenez</div><div class="suc-n">Beni — C. Jorge Suarez Vidal S/N 27 de Mayo</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Ixtamas</div><div class="suc-n">La Paz — C. América S/N Hotel Tajibo</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Javier de Chiquitos</div><div class="suc-n">Beni — Av. Padre José de Arce S/N Esq. 24 de Septiembre</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Caranavi</div><div class="suc-n">La Paz — C. Bolívar S/N Interior Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San José de Chiquitos</div><div class="suc-n">Beni — C. Bolívar S/N Interior Galería Bolívar</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">San Matías</div><div class="suc-n">La Paz — C. Donato Yabari Barrio Virgen de Cotoca</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Robore</div><div class="suc-n">Beni — C. Donato Yabari Barrio Virgen de Cotoca</div><div class="suc-h">L-S 8:00–18:00</div></div>
+      <div class="suc-card"><div class="suc-dot"></div><div class="suc-c">Puerto Suarez</div><div class="suc-n">Beni — C. Chuquisaca Nº 26 Radio TV Cultura</div><div class="suc-h">L-S 8:00–18:00</div></div>
     </div>
   </section>
 </div><!-- /page-sucursales -->
@@ -1406,113 +1153,31 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
   </div>
 </section>
 
-<!-- ══ MODAL EDITAR SUCURSAL ══ -->
-<div class="edit-overlay" id="editOverlay">
-  <div class="edit-modal">
-    <div class="edit-modal-title">✏️ Editar Sucursal</div>
-    <div class="edit-modal-sub" id="editModalSub">Modifica los datos de la sucursal</div>
-
-    <div class="edit-section">
-      <label class="edit-label">Ciudad / Nombre</label>
-      <input class="edit-field" id="editCiudad" placeholder="Nombre de la ciudad" />
-    </div>
-    <div class="edit-row">
-      <div class="edit-section">
-        <label class="edit-label">Departamento</label>
-        <input class="edit-field" id="editDepto" placeholder="Ej: Beni, La Paz" />
-      </div>
-      <div class="edit-section">
-        <label class="edit-label">Horario</label>
-        <input class="edit-field" id="editHorario" placeholder="L-S 8:00–18:00" />
-      </div>
-    </div>
-    <div class="edit-section">
-      <label class="edit-label">Dirección</label>
-      <input class="edit-field" id="editDir" placeholder="Dirección completa" />
-    </div>
-
-    <div class="edit-divider"></div>
-
-    <div class="edit-cierre-toggle" id="editCierreToggle" onclick="toggleCierre()">
-      <div class="edit-toggle-ico">🔒</div>
-      <div class="edit-toggle-txt">
-        <div class="edit-toggle-title">Aviso de cierre temporal</div>
-        <div class="edit-toggle-sub">La sucursal no atenderá por un período determinado</div>
-      </div>
-      <div class="edit-toggle-switch" id="editCierreSwitch"></div>
-    </div>
-
-    <div id="editCierreFields" style="display:none">
-      <div class="edit-cierre-fields">
-        <div class="edit-section" style="margin-bottom:0">
-          <label class="edit-label">Fecha desde</label>
-          <input class="edit-field" id="editDesde" type="date" />
-        </div>
-        <div class="edit-section" style="margin-bottom:0">
-          <label class="edit-label">Fecha hasta</label>
-          <input class="edit-field" id="editHasta" type="date" />
-        </div>
-      </div>
-      <div class="edit-section" style="margin-top:10px">
-        <label class="edit-label">Motivo del cierre</label>
-        <input class="edit-field" id="editMotivo" placeholder="Ej: Feriado departamental, Refacción, etc." />
-      </div>
-    </div>
-
-    <div class="edit-modal-btns">
-      <button class="edit-cancel-btn" onclick="closeEditModal()">Cancelar</button>
-      <button class="edit-save-btn" onclick="guardarEdicion()">✓ Guardar cambios</button>
-    </div>
-  </div>
-</div>
-
-<!-- ══ PANEL ADMIN ══ -->
-<div class="admin-overlay" id="adminOverlay">
-  <div class="admin-panel">
-
-    <!-- TABS -->
-    <div class="admin-head">
-      <div class="admin-title">⚙️ Panel de Administración</div>
       <button class="admin-close" onclick="closeAdmin()">✕</button>
     </div>
-    <div class="admin-tabs">
-      <button class="atab active" onclick="switchTab('stats')">📊 Estadísticas</button>
-      <button class="atab" onclick="switchTab('sucursales')">📍 Sucursales</button>
+    <div class="admin-stats">
+      <div class="astat"><div class="astat-n" id="statMsgs">0</div><div class="astat-l">Mensajes totales</div></div>
+      <div class="astat"><div class="astat-n" id="statSessions">0</div><div class="astat-l">Sesiones</div></div>
+      <div class="astat"><div class="astat-n" id="statQuick">0</div><div class="astat-l">Respuestas rápidas</div></div>
+      <div class="astat"><div class="astat-n" id="statAgents">0</div><div class="astat-l">Derivaciones agente</div></div>
     </div>
-
-    <!-- TAB: ESTADÍSTICAS -->
-    <div id="tab-stats" class="atab-content">
-      <div class="admin-stats">
-        <div class="astat"><div class="astat-n" id="statMsgs">0</div><div class="astat-l">Mensajes totales</div></div>
-        <div class="astat"><div class="astat-n" id="statSessions">0</div><div class="astat-l">Sesiones</div></div>
-        <div class="astat"><div class="astat-n" id="statQuick">0</div><div class="astat-l">Respuestas rápidas</div></div>
-        <div class="astat"><div class="astat-n" id="statAgents">0</div><div class="astat-l">Derivaciones agente</div></div>
-      </div>
-      <div class="admin-sub">Preguntas más frecuentes</div>
-      <div class="admin-faq" id="adminFaq"></div>
-      <div class="admin-sub">Registro de conversación</div>
-      <div class="admin-log" id="adminLog"><div style="color:rgba(255,255,255,.3);font-size:12px">— Sin conversaciones aún —</div></div>
-    </div>
-
-    <!-- TAB: SUCURSALES -->
-    <div id="tab-sucursales" class="atab-content" style="display:none">
-      <div class="admin-sub" style="margin-bottom:14px">Agregar nueva sucursal</div>
-      <div class="suc-form">
-        <input class="suc-input" id="newSucCiudad" placeholder="Ciudad / Nombre *" />
-        <input class="suc-input" id="newSucDir" placeholder="Dirección *" />
-        <input class="suc-input" id="newSucDepto" placeholder="Departamento (ej: Beni, La Paz)" />
-        <input class="suc-input" id="newSucHorario" placeholder="Horario (ej: L-S 8:00–18:00)" />
-        <button class="suc-add-btn" onclick="agregarSucursal()">+ Agregar Sucursal</button>
-      </div>
-      <div class="admin-sub" style="margin-bottom:10px">Sucursales activas — <span id="sucCount" style="color:var(--y3)">0</span> registradas</div>
-      <div class="suc-admin-list" id="sucAdminList"></div>
-    </div>
-
+    <div class="admin-sub">Preguntas más frecuentes</div>
+    <div class="admin-faq" id="adminFaq"></div>
+    <div class="admin-sub">Registro de conversación</div>
+    <div class="admin-log" id="adminLog"><div style="color:rgba(255,255,255,.3);font-size:12px">— Sin conversaciones aún —</div></div>
   </div>
 </div>
 
-<!-- ══ BOTONES FLOTANTES IZQUIERDA ══ -->
-<button class="admin-fab" id="adminFabBtn">📊 Admin</button>
+  <div class="demo-progress" id="demoProgress">Paso 1 / 7</div>
+  <div class="demo-tooltip" id="demoTooltip"></div>
+  <div class="demo-controls">
+    <button class="demo-btn demo-exit" onclick="exitDemo()">✕ Salir del demo</button>
+    <button class="demo-btn" id="demoPrevBtn" onclick="demoStep(-1)">← Anterior</button>
+    <button class="demo-btn" id="demoNextBtn" onclick="demoStep(1)">Siguiente →</button>
+  </div>
+</div>
+
+
 
 <!-- ══ CHATBOT FLOTANTE ══ -->
 
@@ -1802,424 +1467,32 @@ document.getElementById('chatFab').addEventListener('click', function() {
   toggleChat();
 });
 
+// ══ MENÚ HAMBURGUESA ══
+function toggleMenu() {
+  const links = document.getElementById('navLinks');
+  const btn = document.getElementById('navHamburger');
+  links.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('navLinks').classList.remove('open');
+  document.getElementById('navHamburger').classList.remove('open');
+}
+
 // ══ SPA ROUTER ══
 function showPage(pageId) {
   document.querySelectorAll('.spa-page').forEach(p => p.classList.remove('active'));
-  const page = document.getElementById('page-' + pageId);
-  page.classList.add('active');
+  document.getElementById('page-' + pageId).classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Marcar link activo
   document.querySelectorAll('.nav-links a[data-page]').forEach(a => {
     a.classList.toggle('nav-active', a.dataset.page === pageId);
   });
+  // Actualizar pasos del demo con la página actual
   currentPage = pageId;
-  // Recalcular padding por banner de notificaciones
-  setTimeout(() => {
-    const banner = document.getElementById('notifBanner');
-    if (banner && banner.style.display !== 'none') {
-      page.style.paddingTop = banner.offsetHeight + 'px';
-    }
-  }, 50);
 }
 let currentPage = 'home';
 
-// ══ ADMIN TABS ══
-function switchTab(tab) {
-  document.querySelectorAll('.atab').forEach((b,i) => b.classList.toggle('active', ['stats','sucursales'][i] === tab));
-  document.getElementById('tab-stats').style.display = tab === 'stats' ? 'block' : 'none';
-  document.getElementById('tab-sucursales').style.display = tab === 'sucursales' ? 'block' : 'none';
-  if (tab === 'sucursales') renderSucAdminList();
-}
-
-// ══ GESTOR SUCURSALES ══
-// Cargar sucursales base desde el DOM al arrancar
-let sucursales = [];
-
-function initSucursales() {
-  const cards = document.querySelectorAll('#page-sucursales .suc-card');
-  cards.forEach((card, i) => {
-    const ciudad  = card.querySelector('.suc-c')?.textContent || '';
-    const dir     = card.querySelector('.suc-n')?.textContent || '';
-    const horario = card.querySelector('.suc-h')?.textContent || '';
-    let depto = '', dirLimpia = dir;
-    if (dir.includes(' — ')) { [depto, dirLimpia] = dir.split(' — '); }
-    sucursales.push({ id: i, ciudad, dir: dirLimpia, depto, horario, nueva: false, cerrada: false, desde:'', hasta:'', motivo:'' });
-    // Botón editar ✏️
-    const btnEdit = document.createElement('button');
-    btnEdit.className = 'btn-edit-card'; btnEdit.title = 'Editar'; btnEdit.innerHTML = '✏️';
-    btnEdit.onclick = (e) => { e.stopPropagation(); abrirEdicion(i); };
-    card.appendChild(btnEdit);
-    // Botón eliminar ✕
-    const btnDel = document.createElement('button');
-    btnDel.className = 'btn-del-card'; btnDel.title = 'Eliminar'; btnDel.innerHTML = '✕';
-    btnDel.onclick = (e) => { e.stopPropagation(); eliminarSucursal(i); };
-    card.appendChild(btnDel);
-  });
-  actualizarContador();
-}
-
-// ══ MODAL EDICIÓN ══
-let editingId = null;
-let cierreActivo = false;
-
-function abrirEdicion(id) {
-  const s = sucursales.find(x => x.id === id);
-  if (!s) return;
-  editingId = id;
-  document.getElementById('editModalSub').textContent = `Sucursal: ${s.ciudad}`;
-  document.getElementById('editCiudad').value  = s.ciudad;
-  document.getElementById('editDepto').value   = s.depto;
-  document.getElementById('editHorario').value = s.horario;
-  document.getElementById('editDir').value     = s.dir;
-  document.getElementById('editDesde').value   = s.desde || '';
-  document.getElementById('editHasta').value   = s.hasta || '';
-  document.getElementById('editMotivo').value  = s.motivo || '';
-  cierreActivo = s.cerrada || false;
-  document.getElementById('editCierreToggle').classList.toggle('active', cierreActivo);
-  document.getElementById('editCierreFields').style.display = cierreActivo ? 'block' : 'none';
-  document.getElementById('editOverlay').classList.add('open');
-}
-
-function closeEditModal() {
-  document.getElementById('editOverlay').classList.remove('open');
-  editingId = null;
-}
-
-function toggleCierre() {
-  cierreActivo = !cierreActivo;
-  document.getElementById('editCierreToggle').classList.toggle('active', cierreActivo);
-  document.getElementById('editCierreFields').style.display = cierreActivo ? 'block' : 'none';
-}
-
-function guardarEdicion() {
-  if (editingId === null) return;
-  const idx = sucursales.findIndex(x => x.id === editingId);
-  if (idx === -1) return;
-
-  const ciudad  = document.getElementById('editCiudad').value.trim();
-  const depto   = document.getElementById('editDepto').value.trim();
-  const horario = document.getElementById('editHorario').value.trim();
-  const dir     = document.getElementById('editDir').value.trim();
-  const desde   = document.getElementById('editDesde').value;
-  const hasta   = document.getElementById('editHasta').value;
-  const motivo  = document.getElementById('editMotivo').value.trim();
-
-  if (!ciudad || !dir) return;
-
-  sucursales[idx] = { ...sucursales[idx], ciudad, depto, horario, dir, cerrada: cierreActivo, desde, hasta, motivo };
-
-  // Actualizar card en la página
-  const card = document.getElementById('scard-' + editingId);
-  if (card) {
-    card.querySelector('.suc-c').textContent = ciudad;
-    card.querySelector('.suc-n').textContent = (depto ? depto + ' — ' : '') + dir;
-    card.querySelector('.suc-h').textContent = cierreActivo
-      ? `⛔ CERRADA${motivo ? ': ' + motivo : ''}`
-      : horario;
-
-    // Quitar aviso anterior si existe
-    const avisoAnterior = card.querySelector('.suc-aviso');
-    if (avisoAnterior) avisoAnterior.remove();
-
-    card.classList.toggle('cerrada', cierreActivo);
-
-    if (cierreActivo) {
-      const aviso = document.createElement('div');
-      aviso.className = 'suc-aviso';
-      const desdeFmt = desde ? new Date(desde + 'T00:00:00').toLocaleDateString('es-BO', {day:'numeric',month:'short'}) : '';
-      const hastaFmt = hasta ? new Date(hasta + 'T00:00:00').toLocaleDateString('es-BO', {day:'numeric',month:'short'}) : '';
-      aviso.textContent = desdeFmt && hastaFmt ? `${desdeFmt} – ${hastaFmt}` : desdeFmt || hastaFmt || 'Cierre temporal';
-      card.insertBefore(aviso, card.querySelector('.btn-edit-card'));
-    }
-  }
-
-  closeEditModal();
-  actualizarContador();
-  if (document.getElementById('tab-sucursales').style.display !== 'none') renderSucAdminList();
-}
-
-function toggleSucForm() {
-  const f = document.getElementById('sucInlineForm');
-  f.style.display = f.style.display === 'none' ? 'block' : 'none';
-}
-
-function agregarSucursalInline() {
-  const ciudad  = document.getElementById('iSucCiudad').value.trim();
-  const dir     = document.getElementById('iSucDir').value.trim();
-  const depto   = document.getElementById('iSucDepto').value.trim();
-  const horario = document.getElementById('iSucHorario').value.trim() || 'L-S 8:00–18:00';
-
-  if (!ciudad || !dir) {
-    ['iSucCiudad','iSucDir'].forEach(id => {
-      const el = document.getElementById(id);
-      if (!document.getElementById(id).value.trim()) {
-        el.style.borderColor = '#e53e3e';
-        setTimeout(() => el.style.borderColor = '', 1500);
-      }
-    });
-    return;
-  }
-
-  const newId = Date.now();
-  sucursales.push({ id: newId, ciudad, dir, depto, horario, nueva: true, cerrada: false, desde:'', hasta:'', motivo:'' });
-
-  ['iSucCiudad','iSucDir','iSucDepto','iSucHorario'].forEach(id => document.getElementById(id).value = '');
-  toggleSucForm();
-
-  const grid = document.querySelector('#page-sucursales .suc-grid');
-  if (grid) {
-    const card = document.createElement('div');
-    card.className = 'suc-card'; card.id = 'scard-' + newId;
-    card.style.borderColor = 'var(--vc)';
-    card.innerHTML = `
-      <div class="suc-dot"></div>
-      <div class="suc-c">${ciudad}</div>
-      <div class="suc-n">${depto ? depto + ' — ' : ''}${dir}</div>
-      <div class="suc-h">${horario}</div>`;
-    const btnE = document.createElement('button');
-    btnE.className = 'btn-edit-card'; btnE.title = 'Editar'; btnE.innerHTML = '✏️';
-    btnE.onclick = (e) => { e.stopPropagation(); abrirEdicion(newId); };
-    card.appendChild(btnE);
-    const btnD = document.createElement('button');
-    btnD.className = 'btn-del-card'; btnD.title = 'Eliminar'; btnD.innerHTML = '✕';
-    btnD.onclick = (e) => { e.stopPropagation(); eliminarSucursal(newId); };
-    card.appendChild(btnD);
-    grid.appendChild(card);
-  }
-  actualizarContador();
-  if (document.getElementById('tab-sucursales').style.display !== 'none') renderSucAdminList();
-}
-
-function renderSucAdminList() {
-  const list = document.getElementById('sucAdminList');
-  document.getElementById('sucCount').textContent = sucursales.length;
-  if (sucursales.length === 0) {
-    list.innerHTML = '<div style="color:rgba(255,255,255,.3);font-size:12px;padding:8px">— Sin sucursales —</div>';
-    return;
-  }
-  list.innerHTML = sucursales.map(s => {
-    const estadoBadge = s.cerrada
-      ? `<span class="suc-status-badge cerrada">⛔ Cerrada${s.motivo ? ': '+s.motivo.slice(0,20) : ''}</span>`
-      : `<span class="suc-status-badge abierta">✓ Abierta</span>`;
-    return `
-    <div class="suc-admin-row ${s.cerrada?'cerrada':''}" id="srow-${s.id}">
-      <div class="suc-admin-info">
-        <div class="suc-admin-ciudad">${s.ciudad}</div>
-        <div class="suc-admin-dir">${s.depto ? s.depto + ' — ' : ''}${s.dir}</div>
-        <div class="suc-admin-depto">${s.horario}</div>
-      </div>
-      ${s.nueva ? '<span class="suc-new-badge">NUEVA</span>' : ''}
-      ${estadoBadge}
-      <button class="suc-edit-btn" onclick="abrirEdicion(${s.id})">✏️ Editar</button>
-      <button class="suc-del-btn" onclick="eliminarSucursal(${s.id})">🗑</button>
-    </div>`;
-  }).join('');
-}
-
-function actualizarContador() {
-  const heroSub = document.querySelector('#page-sucursales .stitle');
-  if (heroSub) heroSub.textContent = `${sucursales.length} agencias en todo Bolivia 🇧🇴`;
-  const heroPage = document.querySelector('#page-sucursales .page-hero-sub');
-  if (heroPage) heroPage.textContent = `${sucursales.length} agencias en todo Bolivia`;
-  actualizarNotificaciones();
-}
-
-function actualizarNotificaciones() {
-  const banner = document.getElementById('notifBanner');
-  if (!banner) return;
-  const cerradas = sucursales.filter(s => s.cerrada);
-
-  if (cerradas.length === 0) {
-    banner.style.display = 'none';
-    banner.innerHTML = '';
-    document.querySelectorAll('.spa-page').forEach(p => p.style.paddingTop = '');
-    return;
-  }
-
-  banner.innerHTML = cerradas.map(s => {
-    const desdeFmt = s.desde
-      ? new Date(s.desde + 'T00:00:00').toLocaleDateString('es-BO', {day:'numeric', month:'short'})
-      : '';
-    const hastaFmt = s.hasta
-      ? new Date(s.hasta + 'T00:00:00').toLocaleDateString('es-BO', {day:'numeric', month:'short'})
-      : '';
-    const fechaTxt = desdeFmt && hastaFmt ? `${desdeFmt} – ${hastaFmt}`
-      : desdeFmt || hastaFmt || 'Cierre temporal';
-    return `
-      <div class="notif-item tipo-cierre" id="notif-${s.id}">
-        <span class="notif-icon">⛔</span>
-        <span class="notif-txt">Sucursal <strong>${s.ciudad}</strong> cerrada temporalmente${s.motivo ? ' — ' + s.motivo : ''}</span>
-        <span class="notif-fecha">${fechaTxt}</span>
-        <button class="notif-close" onclick="dismissNotif(${s.id})" title="Cerrar aviso">✕</button>
-      </div>`;
-  }).join('');
-
-  banner.style.display = 'block';
-  setTimeout(() => {
-    const h = banner.offsetHeight;
-    document.querySelectorAll('.spa-page.active').forEach(p => p.style.paddingTop = h + 'px');
-  }, 50);
-}
-
-function dismissNotif(id) {
-  const el = document.getElementById('notif-' + id);
-  if (el) { el.style.opacity='0'; el.style.transition='opacity .3s'; setTimeout(()=>el.remove(),300); }
-  setTimeout(() => {
-    const banner = document.getElementById('notifBanner');
-    if (banner && !banner.querySelector('.notif-item')) {
-      banner.style.display = 'none';
-      document.querySelectorAll('.spa-page').forEach(p => p.style.paddingTop = '');
-    } else if (banner) {
-      const h = banner.offsetHeight;
-      document.querySelectorAll('.spa-page.active').forEach(p => p.style.paddingTop = h + 'px');
-    }
-  }, 350);
-}
-
-function agregarSucursal() {
-  const ciudad  = document.getElementById('newSucCiudad').value.trim();
-  const dir     = document.getElementById('newSucDir').value.trim();
-  const depto   = document.getElementById('newSucDepto').value.trim();
-  const horario = document.getElementById('newSucHorario').value.trim() || 'L-S 8:00–18:00';
-
-  if (!ciudad || !dir) {
-    document.getElementById('newSucCiudad').style.borderColor = '#fc8181';
-    document.getElementById('newSucDir').style.borderColor = '#fc8181';
-    setTimeout(() => {
-      document.getElementById('newSucCiudad').style.borderColor = '';
-      document.getElementById('newSucDir').style.borderColor = '';
-    }, 1500);
-    return;
-  }
-
-  const newId = Date.now();
-  sucursales.push({ id: newId, ciudad, dir, depto, horario, nueva: true });
-  ['newSucCiudad','newSucDir','newSucDepto','newSucHorario'].forEach(id => document.getElementById(id).value = '');
-  renderSucAdminList();
-
-  const grid = document.querySelector('#page-sucursales .suc-grid');
-  if (grid) {
-    const card = document.createElement('div');
-    card.className = 'suc-card'; card.id = 'scard-' + newId;
-    card.style.borderColor = 'var(--vc)';
-    card.innerHTML = `
-      <div class="suc-dot"></div>
-      <div class="suc-c">${ciudad}</div>
-      <div class="suc-n">${depto ? depto + ' — ' : ''}${dir}</div>
-      <div class="suc-h">${horario}</div>`;
-    const btn = document.createElement('button');
-    btn.className = 'btn-del-card'; btn.title = 'Eliminar'; btn.innerHTML = '✕';
-    btn.onclick = () => eliminarSucursal(newId);
-    card.appendChild(btn);
-    grid.appendChild(card);
-  }
-  actualizarContador();
-}
-
-function eliminarSucursal(id) {
-  if (!confirm('¿Eliminar esta sucursal?')) return;
-  sucursales = sucursales.filter(s => s.id !== id);
-  renderSucAdminList();
-  const card = document.getElementById('scard-' + id);
-  if (card) { card.style.opacity = '0'; card.style.transform = 'scale(.9)'; card.style.transition = 'all .3s'; setTimeout(() => card.remove(), 300); }
-  actualizarContador();
-}
-
-// ══ ADMIN PANEL ══
-let adminStats = { msgs: 0, sessions: 0, quick: 0, agents: 0 };
-let faqCount = {};
-let convLog = [];
-
-function openAdmin() {
-  updateAdminPanel();
-  document.getElementById('adminOverlay').classList.add('open');
-}
-function closeAdmin() {
-  document.getElementById('adminOverlay').classList.remove('open');
-}
-function updateAdminPanel() {
-  document.getElementById('statMsgs').textContent = adminStats.msgs;
-  document.getElementById('statSessions').textContent = adminStats.sessions;
-  document.getElementById('statQuick').textContent = adminStats.quick;
-  document.getElementById('statAgents').textContent = adminStats.agents;
-
-  // FAQ bars
-  const faqEl = document.getElementById('adminFaq');
-  const sorted = Object.entries(faqCount).sort((a,b) => b[1]-a[1]).slice(0,5);
-  const max = sorted[0]?.[1] || 1;
-  if (sorted.length === 0) {
-    faqEl.innerHTML = '<div style="color:rgba(255,255,255,.3);font-size:12px;padding:8px">— Sin datos aún —</div>';
-  } else {
-    faqEl.innerHTML = sorted.map(([q,n]) => `
-      <div class="afaq-row">
-        <div class="afaq-q">${q.length > 38 ? q.slice(0,38)+'…' : q}</div>
-        <div class="afaq-bar-wrap"><div class="afaq-bar" style="width:${(n/max*100)}%"></div></div>
-        <div class="afaq-n">${n}</div>
-      </div>`).join('');
-  }
-
-  // Log
-  const logEl = document.getElementById('adminLog');
-  if (convLog.length === 0) {
-    logEl.innerHTML = '<div style="color:rgba(255,255,255,.3)">— Sin conversaciones aún —</div>';
-  } else {
-    logEl.innerHTML = convLog.slice(-20).map(l =>
-      `<div class="log-line"><span class="log-time">${l.time}</span><span class="${l.role==='user'?'log-user':'log-bot'}">[${l.role==='user'?'Usuario':'Bot'}]</span> ${l.text.slice(0,60)}${l.text.length>60?'…':''}</div>`
-    ).join('');
-    logEl.scrollTop = logEl.scrollHeight;
-  }
-}
-
-// Interceptar addMsg para registrar estadísticas
-const _origAddMsg = addMsg;
-window.addMsg = function(role, text) {
-  _origAddMsg(role, text);
-  if (role === 'user') {
-    adminStats.msgs++;
-    faqCount[text] = (faqCount[text] || 0) + 1;
-  } else if (role === 'bot') {
-    adminStats.msgs++;
-    if (text.includes('[DERIVAR_AGENTE]') || text.includes('agente')) adminStats.agents++;
-  }
-  const now = new Date();
-  const time = now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
-  convLog.push({ role, text, time });
-};
-
-// Contar sesiones
-const _origToggle = toggleChat;
-window.toggleChat = function() {
-  const wasOpen = chatOpen;
-  _origToggle();
-  if (!wasOpen && !chatOpen || wasOpen === false) adminStats.sessions++;
-};
-
-// Contar quick replies
-const _origQuickClick = renderQuick;
-window.renderQuick = function(show) {
-  _origQuickClick(show);
-  if (show) {
-    document.querySelectorAll('.qbtn').forEach(btn => {
-      btn.addEventListener('click', () => adminStats.quick++, { once: true });
-    });
-  }
-};
-
-
-// Inicializar al cargar
-window.addEventListener('DOMContentLoaded', function() {
-  initSucursales();
-
-  // Botón admin
-  document.getElementById('adminFabBtn').addEventListener('click', openAdmin);
-
-  // Cerrar overlay al hacer click afuera
-  document.getElementById('adminOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closeAdmin();
-  });
-  document.getElementById('editOverlay').addEventListener('click', function(e) {
-    if (e.target === this) closeEditModal();
-  });
-});
 
 </script>
 </body>
