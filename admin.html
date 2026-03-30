@@ -218,7 +218,7 @@ section { padding: 90px 56px; }
 .benefits { background: var(--gris); }
 .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 52px; }
 .feat-card {
-  background: white; border: 1px solid var(--borde); border-radius: 18px;
+  background: var(--crema); border: 1px solid var(--borde); border-radius: 18px;
   padding: 28px; transition: all .25s; position: relative; overflow: hidden;
 }
 .feat-card::before {
@@ -273,7 +273,7 @@ section { padding: 90px 56px; }
 .rt-t { color: var(--vc); font-weight: 700; }
 
 /* ══ REQUISITOS ══ */
-.req { background: white; }
+.req { background: var(--crema); }
 .req-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 48px; }
 .req-card {
   background: var(--gris); border: 1px solid var(--borde);
@@ -297,7 +297,7 @@ section { padding: 90px 56px; }
 .suc { background: var(--gris); }
 .suc-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-top: 44px; }
 .suc-card {
-  background: white; border: 1.5px solid var(--borde); border-radius: 14px;
+  background: var(--crema); border: 1.5px solid var(--borde); border-radius: 14px;
   padding: 16px 12px; text-align: center; transition: all .2s;
 }
 .suc-card:hover { border-color: var(--v); box-shadow: 0 8px 24px rgba(27,107,47,.12); transform: translateY(-3px); }
@@ -308,7 +308,7 @@ section { padding: 90px 56px; }
 .suc-h { font-size: 10px; color: var(--v); font-weight: 700; margin-top: 5px; }
 
 /* ══ TESTIMONIOS ══ */
-.testi { background: white; }
+.testi { background: var(--crema); }
 .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-top: 48px; }
 .testi-card { background: var(--gris); border: 1px solid var(--borde); border-radius: 18px; padding: 26px; transition: all .2s; }
 .testi-card:hover { box-shadow: 0 12px 32px rgba(27,107,47,.1); transform: translateY(-4px); }
@@ -356,7 +356,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 .f-copy { font-size: 12px; color: rgba(255,255,255,.32); }
 
 /* ══ ASFI ══ */
-.asfi-sec { background: white; padding: 90px 56px; }
+.asfi-sec { background: var(--crema); padding: 90px 56px; }
 .asfi-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 18px; }
 .asfi-card {
   background: var(--gris); border: 1px solid var(--borde);
@@ -396,7 +396,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 .fraude-txt { font-size: 15px; line-height: 1.6; color: #7d4e00; }
 .fraude-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-bottom: 32px; }
 .fraude-card {
-  background: white; border: 1px solid #f0d9d9;
+  background: var(--crema); border: 1px solid #f0d9d9;
   border-radius: 16px; padding: 26px; position: relative;
   overflow: hidden; transition: all .25s;
 }
@@ -415,7 +415,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 }
 .ftip {
   display: flex; align-items: flex-start; gap: 12px;
-  background: white; border: 1px solid #c6f6d5;
+  background: var(--crema); border: 1px solid #c6f6d5;
   border-radius: 12px; padding: 14px 18px;
   font-size: 14px; color: var(--txt); line-height: 1.5;
 }
@@ -423,7 +423,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 
 /* ══ GESTIÓN INLINE SUCURSALES (admin) ══ */
 .suc-mgmt-bar {
-  background: white; border-bottom: 2px solid var(--borde);
+  background: var(--crema); border-bottom: 2px solid var(--borde);
   padding: 14px 56px; display:flex; align-items:center;
   justify-content:space-between;
 }
@@ -442,7 +442,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
   display: grid; grid-template-columns: repeat(4,1fr); gap:10px;
 }
 .suc-inline-input {
-  background: white; border: 1.5px solid var(--borde);
+  background: var(--crema); border: 1.5px solid var(--borde);
   border-radius:10px; padding:10px 14px; color:var(--txt);
   font-family:'Nunito',sans-serif; font-size:13px;
   outline:none; transition:border .2s; width:100%;
@@ -550,7 +550,7 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 .admin-title { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 900; color: white; }
 .admin-close { background: rgba(255,255,255,.08); border: none; color: white; width: 36px; height: 36px; border-radius: 50%; font-size: 18px; cursor: pointer; transition: background .2s; }
 .admin-close:hover { background: rgba(255,255,255,.15); }
-.admin-stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 28px; }
+.admin-stats { display: grid; grid-template-columns: repeat(5,1fr); gap: 14px; margin-bottom: 28px; }
 .astat {
   background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
   border-radius: 14px; padding: 18px; text-align: center;
@@ -570,8 +570,6 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 .log-time { color: var(--y2); margin-right: 8px; }
 .log-user { color: var(--vc); }
 .log-bot { color: rgba(255,255,255,.4); }
-
-
 
 /* ══ BANNER NOTIFICACIONES CIERRE ══ */
 .notif-item {
@@ -1531,12 +1529,16 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
     <!-- TAB: ESTADÍSTICAS -->
     <div id="tab-stats" class="atab-content">
       <div class="admin-stats">
+        <div class="astat"><div class="astat-n" id="statVisitas">0</div><div class="astat-l">Visitas a la web</div></div>
         <div class="astat"><div class="astat-n" id="statMsgs">0</div><div class="astat-l">Mensajes totales</div></div>
-        <div class="astat"><div class="astat-n" id="statSessions">0</div><div class="astat-l">Sesiones</div></div>
+        <div class="astat"><div class="astat-n" id="statSessions">0</div><div class="astat-l">Sesiones chat</div></div>
         <div class="astat"><div class="astat-n" id="statQuick">0</div><div class="astat-l">Respuestas rápidas</div></div>
         <div class="astat"><div class="astat-n" id="statAgents">0</div><div class="astat-l">Derivaciones agente</div></div>
       </div>
-      <div class="admin-sub">Preguntas más frecuentes</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div class="admin-sub" style="margin-bottom:0">Preguntas más frecuentes</div>
+        <button onclick="resetStats()" style="background:rgba(229,62,62,.15);border:1px solid rgba(229,62,62,.3);color:#fc8181;border-radius:8px;padding:5px 12px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s" onmouseover="this.style.background='rgba(229,62,62,.3)'" onmouseout="this.style.background='rgba(229,62,62,.15)'">🗑 Resetear estadísticas</button>
+      </div>
       <div class="admin-faq" id="adminFaq"></div>
       <div class="admin-sub">Registro de conversación</div>
       <div class="admin-log" id="adminLog"><div style="color:rgba(255,255,255,.3);font-size:12px">— Sin conversaciones aún —</div></div>
@@ -1605,8 +1607,6 @@ footer { background: var(--v3); color: white; padding: 60px 56px 36px; }
 </div>
 
 <script>
-const LOGO_SRC = "";
-
 // ══ SYSTEM PROMPT ══
 const SYSTEM = `Eres el asistente virtual de Santa Ana S.R.L. - Casa de Cambio / Expreso Amazonas, empresa boliviana especializada en giros de dinero nacionales y casa de cambio, regulada por ASFI (Autoridad de Supervisión del Sistema Financiero).
 
@@ -2184,10 +2184,59 @@ function eliminarSucursal(id) {
   actualizarContador();
 }
 
-// ══ ADMIN PANEL ══
-let adminStats = { msgs: 0, sessions: 0, quick: 0, agents: 0 };
-let faqCount = {};
-let convLog = [];
+// ══ ESTADÍSTICAS CON LOCALSTORAGE ══
+const LS_KEY     = 'santaana_stats';
+const LS_FAQ     = 'santaana_faq';
+const LS_LOG     = 'santaana_log';
+const LS_VISITAS = 'santaana_visitas';
+
+function loadStats() {
+  try { const s = localStorage.getItem(LS_KEY); return s ? JSON.parse(s) : { msgs:0, sessions:0, quick:0, agents:0 }; }
+  catch(e) { return { msgs:0, sessions:0, quick:0, agents:0 }; }
+}
+function saveStats() {
+  try { localStorage.setItem(LS_KEY, JSON.stringify(adminStats)); } catch(e) {}
+}
+function loadFaq() {
+  try { const s = localStorage.getItem(LS_FAQ); return s ? JSON.parse(s) : {}; } catch(e) { return {}; }
+}
+function saveFaq() {
+  try { localStorage.setItem(LS_FAQ, JSON.stringify(faqCount)); } catch(e) {}
+}
+function loadLog() {
+  try { const s = localStorage.getItem(LS_LOG); return s ? JSON.parse(s) : []; } catch(e) { return []; }
+}
+function saveLog() {
+  try { localStorage.setItem(LS_LOG, JSON.stringify(convLog.slice(-100))); } catch(e) {}
+}
+function registrarVisita() {
+  try {
+    const v = parseInt(localStorage.getItem(LS_VISITAS) || '0') + 1;
+    localStorage.setItem(LS_VISITAS, v.toString());
+    return v;
+  } catch(e) { return 0; }
+}
+function getVisitas() {
+  try { return parseInt(localStorage.getItem(LS_VISITAS) || '0'); } catch(e) { return 0; }
+}
+
+let adminStats = loadStats();
+let faqCount   = loadFaq();
+let convLog    = loadLog();
+
+function resetStats() {
+  if (!confirm('\u00bfResetear todas las estadísticas? Esta acción no se puede deshacer.')) return;
+  adminStats = { msgs:0, sessions:0, quick:0, agents:0 };
+  faqCount = {};
+  convLog = [];
+  try {
+    localStorage.removeItem(LS_KEY);
+    localStorage.removeItem(LS_FAQ);
+    localStorage.removeItem(LS_LOG);
+    localStorage.removeItem(LS_VISITAS);
+  } catch(e) {}
+  updateAdminPanel();
+}
 
 function openAdmin() {
   updateAdminPanel();
@@ -2196,13 +2245,14 @@ function openAdmin() {
 function closeAdmin() {
   document.getElementById('adminOverlay').classList.remove('open');
 }
-function updateAdminPanel() {
-  document.getElementById('statMsgs').textContent = adminStats.msgs;
-  document.getElementById('statSessions').textContent = adminStats.sessions;
-  document.getElementById('statQuick').textContent = adminStats.quick;
-  document.getElementById('statAgents').textContent = adminStats.agents;
 
-  // FAQ bars
+function updateAdminPanel() {
+  document.getElementById('statVisitas').textContent  = getVisitas();
+  document.getElementById('statMsgs').textContent     = adminStats.msgs;
+  document.getElementById('statSessions').textContent = adminStats.sessions;
+  document.getElementById('statQuick').textContent    = adminStats.quick;
+  document.getElementById('statAgents').textContent   = adminStats.agents;
+
   const faqEl = document.getElementById('adminFaq');
   const sorted = Object.entries(faqCount).sort((a,b) => b[1]-a[1]).slice(0,5);
   const max = sorted[0]?.[1] || 1;
@@ -2211,46 +2261,48 @@ function updateAdminPanel() {
   } else {
     faqEl.innerHTML = sorted.map(([q,n]) => `
       <div class="afaq-row">
-        <div class="afaq-q">${q.length > 38 ? q.slice(0,38)+'…' : q}</div>
+        <div class="afaq-q">${q.length > 38 ? q.slice(0,38)+'\u2026' : q}</div>
         <div class="afaq-bar-wrap"><div class="afaq-bar" style="width:${(n/max*100)}%"></div></div>
         <div class="afaq-n">${n}</div>
       </div>`).join('');
   }
 
-  // Log
   const logEl = document.getElementById('adminLog');
   if (convLog.length === 0) {
     logEl.innerHTML = '<div style="color:rgba(255,255,255,.3)">— Sin conversaciones aún —</div>';
   } else {
     logEl.innerHTML = convLog.slice(-20).map(l =>
-      `<div class="log-line"><span class="log-time">${l.time}</span><span class="${l.role==='user'?'log-user':'log-bot'}">[${l.role==='user'?'Usuario':'Bot'}]</span> ${l.text.slice(0,60)}${l.text.length>60?'…':''}</div>`
+      `<div class="log-line"><span class="log-time">${l.time}</span><span class="${l.role==='user'?'log-user':'log-bot'}">[${l.role==='user'?'Usuario':'Bot'}]</span> ${l.text.slice(0,60)}${l.text.length>60?'\u2026':''}</div>`
     ).join('');
     logEl.scrollTop = logEl.scrollHeight;
   }
 }
 
-// Interceptar addMsg para registrar estadísticas
+// Interceptar addMsg
 const _origAddMsg = addMsg;
 window.addMsg = function(role, text) {
   _origAddMsg(role, text);
   if (role === 'user') {
     adminStats.msgs++;
     faqCount[text] = (faqCount[text] || 0) + 1;
+    saveFaq();
   } else if (role === 'bot') {
     adminStats.msgs++;
     if (text.includes('[DERIVAR_AGENTE]') || text.includes('agente')) adminStats.agents++;
   }
+  saveStats();
   const now = new Date();
-  const time = now.getHours().toString().padStart(2,'0')+':'+now.getMinutes().toString().padStart(2,'0');
+  const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
   convLog.push({ role, text, time });
+  saveLog();
 };
 
-// Contar sesiones
+// Contar sesiones del chat
 const _origToggle = toggleChat;
 window.toggleChat = function() {
   const wasOpen = chatOpen;
   _origToggle();
-  if (!wasOpen && !chatOpen || wasOpen === false) adminStats.sessions++;
+  if (!wasOpen) { adminStats.sessions++; saveStats(); }
 };
 
 // Contar quick replies
@@ -2259,14 +2311,14 @@ window.renderQuick = function(show) {
   _origQuickClick(show);
   if (show) {
     document.querySelectorAll('.qbtn').forEach(btn => {
-      btn.addEventListener('click', () => adminStats.quick++, { once: true });
+      btn.addEventListener('click', () => { adminStats.quick++; saveStats(); }, { once: true });
     });
   }
 };
 
-
 // Inicializar al cargar
 window.addEventListener('DOMContentLoaded', function() {
+  registrarVisita();
   initSucursales();
 
   // Botón admin
